@@ -14,12 +14,22 @@ import numpy as np
 from gym_hvac.models import Building
 from gym_hvac.models import HVAC
 from gym_hvac.models import HvacBuilding
+from gym_hvac.utils import HvacBuildingTracker
 
 class HvacEnv(gym.Env):
-	metadata = {'render.modes': ['human']}
-	def __init__(self, hvacBuilding:HvacBuilding, outsideTemperature:float = 28.0):
+	def __init__(self, outsideTemperature:float = 28.0):
 
 		self.__version__ = "0.1.0"
+		
+		hvac = HVAC()
+		tracker = HvacBuildingTracker()
+		conditioned_floor_area = 100
+		hvacBuilding = HvacBuilding(hvac, heat_mass_capacity=16500 * conditioned_floor_area, 
+		heat_transmission=200, initial_building_temperature=18, 
+		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
+)
+
+
 		self.OutsideTemperature = outsideTemperature
 		self.hvacBuilding = hvacBuilding
 		# step environment variables
@@ -31,10 +41,10 @@ class HvacEnv(gym.Env):
 		self.step_count = 0
 		self.step_max = 3600
 		# the observation currnently the average cost per second
-		self.observation_space = spaces.Box(low=0, high= self.hvacBuilding.building_hvac.GetMaxCoolingPower(), dtype=np.float32)
+		low = np.array([0.0,])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0),])
+		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
-
-
 
 	def step(self, action): 
 		"""
