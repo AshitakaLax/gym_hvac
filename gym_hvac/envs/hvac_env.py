@@ -7,16 +7,19 @@ Simulate a home HVAC systeme environment.
 Each episode is the hvac running in the specific second.
 """
 # code modules
-import logging.config
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
 import numpy as np
+from gym_hvac.models import Building
+from gym_hvac.models import HVAC
+from gym_hvac.models import HvacBuilding
 
 class HvacEnv(gym.Env):
 	metadata = {'render.modes': ['human']}
-	def __init__(self, outsideTemp):
-		self.__outsidetemp = outsideTemp
+	def __init__(self, hvacBuilding:HvacBuilding):
+		self.__version__ = "0.1.0"
+		self.__HvacBuilding = hvacBuilding
 
 	def step(self, action): 
 		"""
@@ -48,11 +51,11 @@ class HvacEnv(gym.Env):
                  use this for learning.
         """
 		self._take_action(action)
-		self.status = self.env.step()
-		reward = self._get_reward()
-		ob = self.env.getState()
-		episode_over = self.status != hfo_py.IN_GAME
-		return ob, reward, episode_over, {}
+		#self.status = self.env.step()
+		# reward = self._get_reward()
+		#ob = self.env.getState()
+		#episode_over = self.status != hfo_py.IN_GAME
+		#return ob, reward, episode_over, {}
 
 	def reset(self):
 		pass
@@ -64,9 +67,9 @@ class HvacEnv(gym.Env):
 	
 	def _get_reward(self):
 		""" Reward is given for XY. """
-		if self.status == FOOBAR:
-			return 1
-		elif self.status == ABC:
-			return self.somestate ** 2
-		else:
-			return 0
+		# if self.status == FOOBAR:
+		# 	return 1
+		# elif self.status == ABC:
+		# 	return self.somestate ** 2
+		# else:
+		# 	return 0
