@@ -90,6 +90,8 @@ class HvacEnv(gym.Env):
 
 	def reset(self):
 		self.hvacBuilding.reset()
+		self.step_count = 0
+		self.step_max = 3600
 		self.state = (0.0, self.hvacBuilding.current_temperature)
 		return np.array(self.state)
 

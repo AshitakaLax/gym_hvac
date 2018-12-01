@@ -149,6 +149,8 @@ def main():
                         format(sum(r.episode_rewards[-500:]) / min(500, len(r.episode_rewards))))
             logger.info("Average of last 100 rewards: {:0.2f}".
                         format(sum(r.episode_rewards[-100:]) / min(100, len(r.episode_rewards))))
+            logger.info("Current Electrical Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateElectricEneregyCost()))
+            logger.info("Current Gas Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateGasEneregyCost()))
         if args.save and args.save_episodes is not None and not r.episode % args.save_episodes:
             logger.info("Saving agent to {}".format(args.save))
             r.agent.save_model(args.save)

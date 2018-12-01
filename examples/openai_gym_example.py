@@ -137,7 +137,7 @@ def main():
 
     logger.info("Starting {agent} for Environment '{env}'".format(agent=agent, env=environment))
 
-    def episode_finished(r, id_):
+    def episode_finished(r:Runner, id_):
         if r.episode % report_episodes == 0:
             steps_per_second = r.timestep / (time.time() - r.start_time)
             logger.info("Finished episode {:d} after {:d} timesteps. Steps Per Second {:0.2f}".format(
