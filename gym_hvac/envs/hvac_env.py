@@ -43,6 +43,7 @@ class HvacEnv(gym.Env):
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
+		self.env_step_interval = 10
 		self.step_max = 3600
 		# the observation currnently the average cost per second
 		low = np.array([0.0, -30.0, 0.0, 0.0])
@@ -115,7 +116,10 @@ class HvacEnv(gym.Env):
 		if action == 3:
 			self.hvacBuilding.building_hvac.TurnHeatingOn()
 		
-		self.hvacBuilding.step(self.OutsideTemperature)
+		# this will run through the simulation for 10 seconds
+		for	i in range(self.env_step_interval):
+			self.hvacBuilding.step(self.OutsideTemperature)
+
 		self.step_count = self.step_count + 1
 	
 	def _get_reward(self):

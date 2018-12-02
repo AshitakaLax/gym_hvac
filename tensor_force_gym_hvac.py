@@ -154,6 +154,8 @@ def main():
             logger.info("Current temperature: {}C".format(r.environment.gym.hvacBuilding.current_temperature))
             logger.info("Number of times Heating turned on: {}".format(r.environment.gym.hvacBuilding.building_hvac.NumberOfTimesHeatingTurnedOn))
             logger.info("Number of times Cooling turned on: {}".format(r.environment.gym.hvacBuilding.building_hvac.NumberOfTimesCoolingTurnedOn))
+            logger.info("Total Time heating : {}".format(r.environment.gym.hvacBuilding.building_hvac.TotalDurationHeatingOn))
+            logger.info("Total Time cooling : {}".format(r.environment.gym.hvacBuilding.building_hvac.TotalDurationCoolingOn))
         if args.save and args.save_episodes is not None and not r.episode % args.save_episodes:
             logger.info("Saving agent to {}".format(args.save))
             r.agent.save_model(args.save)

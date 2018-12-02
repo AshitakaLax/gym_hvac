@@ -117,6 +117,8 @@ class HvacBuilding():
 		
 		if temperatureReward < 2:
 			temperatureReward = 1
+		elif temperatureReward > 10:
+			temperatureReward = -9999.0
 		else:
 			temperatureReward = temperatureReward * -1.0
 

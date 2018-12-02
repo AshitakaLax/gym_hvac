@@ -22,8 +22,8 @@
 				"Hvac-v0", 
 				"-a", "examples/configs/trpo.json", 
 				"-n", "examples/configs/mlp2_network.json", 
-				"-e", "100", 
-				"-m", "3600"],
+				"-e", "1000", 
+				"-m", "360"],
 			"console": "integratedTerminal"
 		},
 		{
