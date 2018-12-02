@@ -134,7 +134,7 @@ def main():
     if args.debug:  # TODO: Timestep-based reporting
         report_episodes = 1
     else:
-        report_episodes = 100
+        report_episodes = 10
 
     logger.info("Starting {agent} for Environment '{env}'".format(agent=agent, env=environment))
 
@@ -145,12 +145,15 @@ def main():
                 r.agent.episode, r.episode_timestep, steps_per_second
             ))
             logger.info("Episode reward: {}".format(r.episode_rewards[-1]))
-            logger.info("Average of last 500 rewards: {:0.2f}".
-                        format(sum(r.episode_rewards[-500:]) / min(500, len(r.episode_rewards))))
-            logger.info("Average of last 100 rewards: {:0.2f}".
-                        format(sum(r.episode_rewards[-100:]) / min(100, len(r.episode_rewards))))
+            logger.info("Average of last 5 rewards: {:0.2f}".
+                        format(sum(r.episode_rewards[-5:]) / min(5, len(r.episode_rewards))))
+            logger.info("Average of last 2 rewards: {:0.2f}".
+                        format(sum(r.episode_rewards[-2:]) / min(2, len(r.episode_rewards))))
             logger.info("Current Electrical Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateElectricEneregyCost()))
             logger.info("Current Gas Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateGasEneregyCost()))
+            logger.info("Current temperature: {}C".format(r.environment.gym.hvacBuilding.current_temperature))
+            logger.info("Number of times Heating turned on: {}".format(r.environment.gym.hvacBuilding.building_hvac.NumberOfTimesHeatingTurnedOn))
+            logger.info("Number of times Cooling turned on: {}".format(r.environment.gym.hvacBuilding.building_hvac.NumberOfTimesCoolingTurnedOn))
         if args.save and args.save_episodes is not None and not r.episode % args.save_episodes:
             logger.info("Saving agent to {}".format(args.save))
             r.agent.save_model(args.save)

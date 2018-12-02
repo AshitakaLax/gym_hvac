@@ -17,7 +17,7 @@ from gym_hvac.models import HvacBuilding
 from gym_hvac.utils import HvacBuildingTracker
 
 class HvacEnv(gym.Env):
-	def __init__(self, outsideTemperature:float = 28.0):
+	def __init__(self, outsideTemperature:float = 0.0):
 
 		self.__version__ = "0.1.0"
 		
@@ -25,7 +25,7 @@ class HvacEnv(gym.Env):
 		tracker = HvacBuildingTracker()
 		conditioned_floor_area = 100
 		hvacBuilding = HvacBuilding(hvac, heat_mass_capacity=16500 * conditioned_floor_area, 
-		heat_transmission=200, initial_building_temperature=18, 
+		heat_transmission=200, initial_building_temperature=10, 
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
 
@@ -33,16 +33,20 @@ class HvacEnv(gym.Env):
 		self.OutsideTemperature = outsideTemperature
 		self.hvacBuilding = hvacBuilding
 		# step environment variables
-		# we are currently saying there are 2 options Cooling on/off
+		# we are currently saying there are 4 options Cooling on/off
+		# 0 Cooling off
+		# 1 Cooling On
+		# 2 Heating Off
+		# 3 Heating On
 		# if you want more than one action then you need to provide a spaces.Tuple
-		self.action_space = spaces.Discrete(2)
-		
+		self.action_space = spaces.Discrete(4)
 		self.state = 0.0
 		self.step_count = 0
+		self.step_after_done = 0
 		self.step_max = 3600
 		# the observation currnently the average cost per second
-		low = np.array([0.0, -30.0])
-		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 60.0])
+		low = np.array([0.0, -30.0, 0.0, 0.0])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 60.0, 1.0, 1.0])
 		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
 
@@ -78,13 +82,14 @@ class HvacEnv(gym.Env):
 		assert self.action_space.contains(action)
 		self._take_action(action)
 		self.hvacBuilding
-		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature)
+		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, float(self.hvacBuilding.building_hvac.HeatingIsOn), float(self.hvacBuilding.building_hvac.CoolingIsOn))
 
 		#self.status = self.env.step()
 		reward = self._get_reward()
 		#ob = self.env.getState()
 		done = False
 		if self.step_count >= self.step_max:
+			self.step_after_done = self.step_after_done + 1
 			done = True
 		return np.array(self.state), reward, done, {self.hvacBuilding.current_temperature, self.hvacBuilding.building_hvac.CoolingIsOn }
 
@@ -92,7 +97,8 @@ class HvacEnv(gym.Env):
 		self.hvacBuilding.reset()
 		self.step_count = 0
 		self.step_max = 3600
-		self.state = (0.0, self.hvacBuilding.current_temperature)
+		self.step_after_done = 0
+		self.state = (0.0, self.hvacBuilding.current_temperature, 0.0, 0.0)
 		return np.array(self.state)
 
 	def render(self, mode='human', close=False):
@@ -101,9 +107,13 @@ class HvacEnv(gym.Env):
 	def _take_action(self, action):
 		# convert
 		if action == 0:
-			self.hvacBuilding.building_hvac.TurnCoolingOn()
-		if action == 1:
 			self.hvacBuilding.building_hvac.TurnCoolingOff()
+		if action == 1:
+			self.hvacBuilding.building_hvac.TurnCoolingOn()
+		if action == 2:
+			self.hvacBuilding.building_hvac.TurnHeatingOff()
+		if action == 3:
+			self.hvacBuilding.building_hvac.TurnHeatingOn()
 		
 		self.hvacBuilding.step(self.OutsideTemperature)
 		self.step_count = self.step_count + 1

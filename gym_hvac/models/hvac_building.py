@@ -105,15 +105,23 @@ class HvacBuilding():
 	def DetermineReward(self):
 		# average watts per second
 		# the less the average the better
-		reward =  1-(self.building_hvac.GetAverageWattsPerSecond() / self.building_hvac.GetMaxCoolingPower()) 
+		# -2 to scale the reward similar to 1
+		reward = (self.CalculateElectricEneregyCost() + self.CalculateGasEneregyCost()) * -2.0
+		
+		#reward =  1-(self.building_hvac.GetAverageWattsPerSecond() / self.building_hvac.GetMaxCoolingPower()) 
 		
 		# currently we are saying that anything that varies from 19.0 C is have less of a reward
 		# divided by 3 to be the diviation tolerance
-		temperatureReward = abs(self.current_temperature - 19.0) / 3.0
 		
-		reward = reward - temperatureReward
-		return reward
+		temperatureReward = abs(self.current_temperature - 19.0)
+		
+		if temperatureReward < 2:
+			temperatureReward = 1
+		else:
+			temperatureReward = temperatureReward * -1.0
 
+		reward = reward + temperatureReward
+		return reward
 
 	def reset(self):
 		self.current_temperature = 18

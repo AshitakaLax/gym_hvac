@@ -182,6 +182,7 @@ class HVAC():
 
 			# Increment the Heater duration 
 			self.LastHeatingDuration = self.LastHeatingDuration + 1
+			self.TotalDurationHeatingOn = self.TotalDurationHeatingOn + 1
 			if self.HeatingIsShuttingDown:
 				# determine how long the till it is completely shutoff
 				self.__HeatingShutoffDuration = self.__HeatingShutoffDuration + 1
@@ -213,7 +214,6 @@ class HVAC():
 				# we have finished the shut off cycle
 				self.HeatingIsOn = False
 				self.HeatingIsShuttingDown = False
-				self.TotalDurationHeatingOn = self.TotalDurationHeatingOn + self.LastHeatingDuration
 
 		# heater is starting up
 		elif self.LastHeatingDuration < self.__house_blower_on_delay.total_seconds():
