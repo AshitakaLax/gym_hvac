@@ -115,15 +115,15 @@ class HvacBuilding():
 		
 		temperatureReward = abs(self.current_temperature - 19.0)
 		
-		if temperatureReward < 2:
+		if temperatureReward < 1:
 			temperatureReward = 1
-		elif temperatureReward > 10:
-			temperatureReward = -9999.0
+		if temperatureReward < 2:
+			temperatureReward = 1-(temperatureReward / 2)
 		else:
-			temperatureReward = temperatureReward * -1.0
+			temperatureReward = 0.0
 
-		reward = reward + temperatureReward
-		return reward
+		#reward = reward + temperatureReward
+		return temperatureReward
 
 	def reset(self):
 		self.current_temperature = 18
