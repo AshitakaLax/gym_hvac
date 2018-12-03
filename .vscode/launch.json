@@ -16,12 +16,10 @@
 			"type": "python",
 			"request": "launch",
 			"program": "${workspaceFolder}/tensor_force_gym_hvac.py",
-			//"args": ["CartPole-v0", "-a", "examples/configs/vpg.json", "-n", "examples/configs/mlp2_network.json", "-e", "2000", "-m", "200"],
-			//"args": ["Hvac-v0", "-a", "examples/configs/vpg.json", "-n", "examples/configs/mlp2_network.json", "-e", "2000", "-m", "200"],
 			"args": [
 				"Hvac-v0", 
 				"-a", "examples/configs/ppo.json", 
-				"-n", "examples/configs/mlp2_normalized_network.json", 
+				"-n", "examples/configs/hvac_test_network.json", 
 				"-e", "1000", 
 				"-m", "360"],
 			"console": "integratedTerminal"

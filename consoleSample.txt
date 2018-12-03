@@ -1,0 +1,1080 @@
+  3%|████▍                                                                                                                                               | 30/1000 [00:54<22:48,  1.41s/it]INFO:root:Finished episode 30 after 361 timesteps. Steps Per Second 198.62
+INFO:root:Episode reward: 65.03444131547506
+INFO:root:Average of last 5 rewards: 62.86
+INFO:root:Average of last 2 rewards: 35.48
+INFO:root:Current Electrical Cost: $0.016160046666666664
+INFO:root:Current Gas Cost: $0.007263207288657688
+INFO:root:Current temperature: 16.5230587428496C
+INFO:root:Number of times Heating turned on: 4
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 734.0
+INFO:root:Total Time cooling : 0.0
+  4%|█████▉                                                                                                                                              | 40/1000 [01:15<27:46,  1.74s/it]INFO:root:Finished episode 40 after 361 timesteps. Steps Per Second 191.28
+INFO:root:Episode reward: 52.64648280255251
+INFO:root:Average of last 5 rewards: 102.32
+INFO:root:Average of last 2 rewards: 78.37
+INFO:root:Current Electrical Cost: $0.008513451666666668
+INFO:root:Current Gas Cost: $0.007263207288657688
+INFO:root:Current temperature: 14.237952742519989C
+INFO:root:Number of times Heating turned on: 2
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 402.0
+INFO:root:Total Time cooling : 0.0
+  5%|███████▍                                                                                                                                            | 50/1000 [01:36<22:44,  1.44s/it]INFO:root:Finished episode 50 after 361 timesteps. Steps Per Second 187.16
+INFO:root:Episode reward: 115.02914464279343
+INFO:root:Average of last 5 rewards: 124.00
+INFO:root:Average of last 2 rewards: 140.50
+INFO:root:Current Electrical Cost: $0.023824515
+INFO:root:Current Gas Cost: $0.001815801822164422
+INFO:root:Current temperature: 18.440913403587277C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1046.0
+INFO:root:Total Time cooling : 0.0
+  6%|████████▉                                                                                                                                           | 60/1000 [01:56<26:08,  1.67s/it]INFO:root:Finished episode 60 after 361 timesteps. Steps Per Second 186.42
+INFO:root:Episode reward: 44.383046087355964
+INFO:root:Average of last 5 rewards: 83.88
+INFO:root:Average of last 2 rewards: 77.11
+INFO:root:Current Electrical Cost: $0.01923074916666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 15.926632698410083C
+INFO:root:Number of times Heating turned on: 4
+INFO:root:Number of times Cooling turned on: 1
+INFO:root:Total Time heating : 654.0
+INFO:root:Total Time cooling : 30.0
+  7%|██████████▎                                                                                                                                         | 70/1000 [02:19<27:27,  1.77s/it]INFO:root:Finished episode 70 after 361 timesteps. Steps Per Second 181.44
+INFO:root:Episode reward: 175.45830520326322
+INFO:root:Average of last 5 rewards: 146.50
+INFO:root:Average of last 2 rewards: 151.35
+INFO:root:Current Electrical Cost: $0.02921683583333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.20847375689108C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 1
+INFO:root:Total Time heating : 1147.0
+INFO:root:Total Time cooling : 20.0
+  8%|███████████▊                                                                                                                                        | 80/1000 [02:41<27:55,  1.82s/it]INFO:root:Finished episode 80 after 361 timesteps. Steps Per Second 178.37
+INFO:root:Episode reward: 111.29506563826402
+INFO:root:Average of last 5 rewards: 96.60
+INFO:root:Average of last 2 rewards: 92.65
+INFO:root:Current Electrical Cost: $0.01989844583333333
+INFO:root:Current Gas Cost: $0.001815801822164422
+INFO:root:Current temperature: 17.13462100253939C
+INFO:root:Number of times Heating turned on: 5
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 875.0
+INFO:root:Total Time cooling : 0.0
+  9%|█████████████▎                                                                                                                                      | 90/1000 [03:03<23:30,  1.55s/it]INFO:root:Finished episode 90 after 361 timesteps. Steps Per Second 177.08
+INFO:root:Episode reward: 108.72599579743103
+INFO:root:Average of last 5 rewards: 133.65
+INFO:root:Average of last 2 rewards: 135.68
+INFO:root:Current Electrical Cost: $0.021342036666666668
+INFO:root:Current Gas Cost: $0.0036316036443288435
+INFO:root:Current temperature: 17.313775660794228C
+INFO:root:Number of times Heating turned on: 5
+INFO:root:Number of times Cooling turned on: 1
+INFO:root:Total Time heating : 885.0
+INFO:root:Total Time cooling : 10.0
+ 10%|██████████████▋                                                                                                                                    | 100/1000 [03:23<24:26,  1.63s/it]INFO:root:Finished episode 100 after 361 timesteps. Steps Per Second 177.28
+INFO:root:Episode reward: 172.95174937226153
+INFO:root:Average of last 5 rewards: 141.43
+INFO:root:Average of last 2 rewards: 127.55
+INFO:root:Current Electrical Cost: $0.023824515
+INFO:root:Current Gas Cost: $0.001815801822164422
+INFO:root:Current temperature: 17.993480802947644C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1046.0
+INFO:root:Total Time cooling : 0.0
+ 11%|████████████████▏                                                                                                                                  | 110/1000 [03:43<21:55,  1.48s/it]INFO:root:Finished episode 110 after 361 timesteps. Steps Per Second 177.73
+INFO:root:Episode reward: 138.55202928401735
+INFO:root:Average of last 5 rewards: 132.60
+INFO:root:Average of last 2 rewards: 154.56
+INFO:root:Current Electrical Cost: $0.019013715833333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 16.84020439370612C
+INFO:root:Number of times Heating turned on: 5
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 825.0
+INFO:root:Total Time cooling : 0.0
+ 12%|█████████████████▋                                                                                                                                 | 120/1000 [04:03<20:52,  1.42s/it]INFO:root:Finished episode 120 after 361 timesteps. Steps Per Second 177.81
+INFO:root:Episode reward: 52.55120479892173
+INFO:root:Average of last 5 rewards: 128.13
+INFO:root:Average of last 2 rewards: 113.70
+INFO:root:Current Electrical Cost: $0.008039808333333334
+INFO:root:Current Gas Cost: $0.005447405466493266
+INFO:root:Current temperature: 14.086286488395025C
+INFO:root:Number of times Heating turned on: 2
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 372.0
+INFO:root:Total Time cooling : 0.0
+ 13%|███████████████████                                                                                                                                | 130/1000 [04:26<25:34,  1.76s/it]INFO:root:Finished episode 130 after 361 timesteps. Steps Per Second 176.13
+INFO:root:Episode reward: 169.14198251242598
+INFO:root:Average of last 5 rewards: 139.39
+INFO:root:Average of last 2 rewards: 165.95
+INFO:root:Current Electrical Cost: $0.03189783583333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 21.32254091113351C
+INFO:root:Number of times Heating turned on: 9
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1378.0
+INFO:root:Total Time cooling : 0.0
+ 14%|████████████████████▌                                                                                                                              | 140/1000 [04:47<21:17,  1.49s/it]INFO:root:Finished episode 140 after 361 timesteps. Steps Per Second 175.70
+INFO:root:Episode reward: 168.34266939897202
+INFO:root:Average of last 5 rewards: 134.98
+INFO:root:Average of last 2 rewards: 130.05
+INFO:root:Current Electrical Cost: $0.022528698333333336
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.984712906111646C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 976.0
+INFO:root:Total Time cooling : 0.0
+ 15%|██████████████████████                                                                                                                             | 150/1000 [05:08<22:28,  1.59s/it]INFO:root:Finished episode 150 after 361 timesteps. Steps Per Second 175.64
+INFO:root:Episode reward: 155.9039319199564
+INFO:root:Average of last 5 rewards: 167.66
+INFO:root:Average of last 2 rewards: 167.42
+INFO:root:Current Electrical Cost: $0.019219259166666666
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 16.744674658701648C
+INFO:root:Number of times Heating turned on: 5
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 835.0
+INFO:root:Total Time cooling : 0.0
+ 16%|███████████████████████▌                                                                                                                           | 160/1000 [05:28<21:21,  1.53s/it]INFO:root:Finished episode 160 after 361 timesteps. Steps Per Second 175.85
+INFO:root:Episode reward: 166.00190931628748
+INFO:root:Average of last 5 rewards: 167.84
+INFO:root:Average of last 2 rewards: 164.39
+INFO:root:Current Electrical Cost: $0.030175293333333332
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.622403966937195C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1308.0
+INFO:root:Total Time cooling : 0.0
+ 17%|████████████████████████▉                                                                                                                          | 170/1000 [05:49<22:37,  1.64s/it]INFO:root:Finished episode 170 after 361 timesteps. Steps Per Second 175.61
+INFO:root:Episode reward: 174.7142829504647
+INFO:root:Average of last 5 rewards: 165.74
+INFO:root:Average of last 2 rewards: 175.06
+INFO:root:Current Electrical Cost: $0.030175293333333332
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.46948945955379C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1308.0
+INFO:root:Total Time cooling : 0.0
+ 18%|██████████████████████████▍                                                                                                                        | 180/1000 [06:07<19:00,  1.39s/it]INFO:root:Finished episode 180 after 361 timesteps. Steps Per Second 176.73
+INFO:root:Episode reward: 168.14142118364396
+INFO:root:Average of last 5 rewards: 166.27
+INFO:root:Average of last 2 rewards: 171.04
+INFO:root:Current Electrical Cost: $0.026249224166666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.30434211330965C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1136.0
+INFO:root:Total Time cooling : 0.0
+ 19%|███████████████████████████▉                                                                                                                       | 190/1000 [06:27<21:04,  1.56s/it]INFO:root:Finished episode 190 after 361 timesteps. Steps Per Second 176.84
+INFO:root:Episode reward: 174.808596266551
+INFO:root:Average of last 5 rewards: 178.19
+INFO:root:Average of last 2 rewards: 176.79
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.195444991544353C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 20%|█████████████████████████████▍                                                                                                                     | 200/1000 [06:48<20:06,  1.51s/it]INFO:root:Finished episode 200 after 361 timesteps. Steps Per Second 176.91
+INFO:root:Episode reward: 172.3749763822237
+INFO:root:Average of last 5 rewards: 173.17
+INFO:root:Average of last 2 rewards: 175.97
+INFO:root:Current Electrical Cost: $0.029764206666666664
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.246232349083513C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1288.0
+INFO:root:Total Time cooling : 0.0
+ 21%|██████████████████████████████▊                                                                                                                    | 210/1000 [07:07<20:45,  1.58s/it]INFO:root:Finished episode 210 after 361 timesteps. Steps Per Second 177.40
+INFO:root:Episode reward: 178.43361586798503
+INFO:root:Average of last 5 rewards: 171.11
+INFO:root:Average of last 2 rewards: 178.76
+INFO:root:Current Electrical Cost: $0.02273424166666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.952095910696343C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 986.0
+INFO:root:Total Time cooling : 0.0
+ 22%|████████████████████████████████▎                                                                                                                  | 220/1000 [07:27<17:46,  1.37s/it]INFO:root:Finished episode 220 after 361 timesteps. Steps Per Second 177.57
+INFO:root:Episode reward: 151.333680685272
+INFO:root:Average of last 5 rewards: 149.55
+INFO:root:Average of last 2 rewards: 156.44
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.280889896893886C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 23%|█████████████████████████████████▊                                                                                                                 | 230/1000 [07:46<21:26,  1.67s/it]INFO:root:Finished episode 230 after 361 timesteps. Steps Per Second 177.96
+INFO:root:Episode reward: 156.88707825383227
+INFO:root:Average of last 5 rewards: 174.59
+INFO:root:Average of last 2 rewards: 167.41
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.87893076814517C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 24%|███████████████████████████████████▎                                                                                                               | 240/1000 [08:05<17:43,  1.40s/it]INFO:root:Finished episode 240 after 361 timesteps. Steps Per Second 178.32
+INFO:root:Episode reward: 177.29016503091057
+INFO:root:Average of last 5 rewards: 171.80
+INFO:root:Average of last 2 rewards: 174.32
+INFO:root:Current Electrical Cost: $0.0264547675
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.036969490061153C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1147.0
+INFO:root:Total Time cooling : 0.0
+ 25%|████████████████████████████████████▊                                                                                                              | 250/1000 [08:25<18:55,  1.51s/it]INFO:root:Finished episode 250 after 361 timesteps. Steps Per Second 178.61
+INFO:root:Episode reward: 176.71690162837092
+INFO:root:Average of last 5 rewards: 166.58
+INFO:root:Average of last 2 rewards: 172.72
+INFO:root:Current Electrical Cost: $0.022323155
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.68209179610856C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 966.0
+INFO:root:Total Time cooling : 0.0
+ 26%|██████████████████████████████████████▏                                                                                                            | 260/1000 [08:46<18:46,  1.52s/it]INFO:root:Finished episode 260 after 361 timesteps. Steps Per Second 178.16
+INFO:root:Episode reward: 129.27288728446962
+INFO:root:Average of last 5 rewards: 156.92
+INFO:root:Average of last 2 rewards: 132.40
+INFO:root:Current Electrical Cost: $0.029764206666666664
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.07976438768291C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1288.0
+INFO:root:Total Time cooling : 0.0
+ 27%|███████████████████████████████████████▋                                                                                                           | 270/1000 [09:06<18:15,  1.50s/it]INFO:root:Finished episode 270 after 361 timesteps. Steps Per Second 178.26
+INFO:root:Episode reward: 179.54364803911574
+INFO:root:Average of last 5 rewards: 167.10
+INFO:root:Average of last 2 rewards: 174.49
+INFO:root:Current Electrical Cost: $0.02980059166666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.33888443158334C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1287.0
+INFO:root:Total Time cooling : 0.0
+ 28%|█████████████████████████████████████████▏                                                                                                         | 280/1000 [09:27<19:20,  1.61s/it]INFO:root:Finished episode 280 after 361 timesteps. Steps Per Second 177.96
+INFO:root:Episode reward: 175.96678271573188
+INFO:root:Average of last 5 rewards: 170.25
+INFO:root:Average of last 2 rewards: 165.57
+INFO:root:Current Electrical Cost: $0.026249224166666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.05010538600322C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1137.0
+INFO:root:Total Time cooling : 0.0
+ 29%|██████████████████████████████████████████▋                                                                                                        | 290/1000 [09:48<17:49,  1.51s/it]INFO:root:Finished episode 290 after 361 timesteps. Steps Per Second 178.03
+INFO:root:Episode reward: 173.71310712501926
+INFO:root:Average of last 5 rewards: 175.49
+INFO:root:Average of last 2 rewards: 176.10
+INFO:root:Current Electrical Cost: $0.030461905
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.755352388822406C
+INFO:root:Number of times Heating turned on: 9
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1318.0
+INFO:root:Total Time cooling : 0.0
+ 30%|████████████████████████████████████████████                                                                                                       | 300/1000 [10:08<18:20,  1.57s/it]INFO:root:Finished episode 300 after 361 timesteps. Steps Per Second 178.10
+INFO:root:Episode reward: 178.64235524983502
+INFO:root:Average of last 5 rewards: 165.62
+INFO:root:Average of last 2 rewards: 163.41
+INFO:root:Current Electrical Cost: $0.0264547675
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.113429731066507C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1147.0
+INFO:root:Total Time cooling : 0.0
+ 31%|█████████████████████████████████████████████▌                                                                                                     | 310/1000 [10:27<16:33,  1.44s/it]INFO:root:Finished episode 310 after 361 timesteps. Steps Per Second 178.43
+INFO:root:Episode reward: 155.34765329285534
+INFO:root:Average of last 5 rewards: 163.73
+INFO:root:Average of last 2 rewards: 160.12
+INFO:root:Current Electrical Cost: $0.029764206666666664
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.478700487026988C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1288.0
+INFO:root:Total Time cooling : 0.0
+ 32%|███████████████████████████████████████████████                                                                                                    | 320/1000 [10:47<16:43,  1.48s/it]INFO:root:Finished episode 320 after 361 timesteps. Steps Per Second 178.49
+INFO:root:Episode reward: 179.7229390413963
+INFO:root:Average of last 5 rewards: 166.53
+INFO:root:Average of last 2 rewards: 167.43
+INFO:root:Current Electrical Cost: $0.0279312325
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.940126843199643C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1207.0
+INFO:root:Total Time cooling : 0.0
+ 33%|████████████████████████████████████████████████▌                                                                                                  | 330/1000 [11:07<16:35,  1.49s/it]INFO:root:Finished episode 330 after 361 timesteps. Steps Per Second 178.58
+INFO:root:Episode reward: 160.72612241912367
+INFO:root:Average of last 5 rewards: 172.76
+INFO:root:Average of last 2 rewards: 168.75
+INFO:root:Current Electrical Cost: $0.022528698333333336
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.668185628607315C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 976.0
+INFO:root:Total Time cooling : 0.0
+ 34%|█████████████████████████████████████████████████▉                                                                                                 | 340/1000 [11:26<16:50,  1.53s/it]INFO:root:Finished episode 340 after 361 timesteps. Steps Per Second 178.71
+INFO:root:Episode reward: 167.2805386434341
+INFO:root:Average of last 5 rewards: 166.92
+INFO:root:Average of last 2 rewards: 167.59
+INFO:root:Current Electrical Cost: $0.026495301666666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.451281534212796C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1147.0
+INFO:root:Total Time cooling : 0.0
+ 35%|███████████████████████████████████████████████████▍                                                                                               | 350/1000 [11:46<15:44,  1.45s/it]INFO:root:Finished episode 350 after 361 timesteps. Steps Per Second 178.75
+INFO:root:Episode reward: 178.34933467847313
+INFO:root:Average of last 5 rewards: 163.96
+INFO:root:Average of last 2 rewards: 177.28
+INFO:root:Current Electrical Cost: $0.02273424166666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.94579327667187C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 986.0
+INFO:root:Total Time cooling : 0.0
+ 36%|████████████████████████████████████████████████████▉                                                                                              | 360/1000 [12:06<15:53,  1.49s/it]INFO:root:Finished episode 360 after 361 timesteps. Steps Per Second 178.82
+INFO:root:Episode reward: 178.63258783473964
+INFO:root:Average of last 5 rewards: 174.38
+INFO:root:Average of last 2 rewards: 178.20
+INFO:root:Current Electrical Cost: $0.02821784416666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.152792311073533C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1217.0
+INFO:root:Total Time cooling : 0.0
+ 37%|██████████████████████████████████████████████████████▍                                                                                            | 370/1000 [12:27<17:08,  1.63s/it]INFO:root:Finished episode 370 after 361 timesteps. Steps Per Second 178.74
+INFO:root:Episode reward: 178.6134265018774
+INFO:root:Average of last 5 rewards: 171.25
+INFO:root:Average of last 2 rewards: 165.83
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.166895587051346C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1126.0
+INFO:root:Total Time cooling : 0.0
+ 38%|███████████████████████████████████████████████████████▊                                                                                           | 380/1000 [12:47<15:26,  1.49s/it]INFO:root:Finished episode 380 after 361 timesteps. Steps Per Second 178.84
+INFO:root:Episode reward: 149.74671940392042
+INFO:root:Average of last 5 rewards: 166.11
+INFO:root:Average of last 2 rewards: 161.47
+INFO:root:Current Electrical Cost: $0.022528698333333336
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.007529680029364C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 976.0
+INFO:root:Total Time cooling : 0.0
+ 39%|█████████████████████████████████████████████████████████▎                                                                                         | 390/1000 [13:06<15:47,  1.55s/it]INFO:root:Finished episode 390 after 361 timesteps. Steps Per Second 179.05
+INFO:root:Episode reward: 166.99538004966007
+INFO:root:Average of last 5 rewards: 164.31
+INFO:root:Average of last 2 rewards: 173.33
+INFO:root:Current Electrical Cost: $0.026249224166666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.138921947166075C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1137.0
+INFO:root:Total Time cooling : 0.0
+ 40%|██████████████████████████████████████████████████████████▊                                                                                        | 400/1000 [13:24<13:57,  1.40s/it]INFO:root:Finished episode 400 after 361 timesteps. Steps Per Second 179.52
+INFO:root:Episode reward: 153.8401815244809
+INFO:root:Average of last 5 rewards: 165.48
+INFO:root:Average of last 2 rewards: 163.53
+INFO:root:Current Electrical Cost: $0.029764206666666664
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.42136932391435C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1288.0
+INFO:root:Total Time cooling : 0.0
+ 41%|████████████████████████████████████████████████████████████▎                                                                                      | 410/1000 [13:42<13:42,  1.39s/it]INFO:root:Finished episode 410 after 361 timesteps. Steps Per Second 179.93
+INFO:root:Episode reward: 173.46493543936324
+INFO:root:Average of last 5 rewards: 171.67
+INFO:root:Average of last 2 rewards: 174.91
+INFO:root:Current Electrical Cost: $0.029764206666666664
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.35644987187964C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1288.0
+INFO:root:Total Time cooling : 0.0
+ 42%|█████████████████████████████████████████████████████████████▋                                                                                     | 420/1000 [14:00<13:33,  1.40s/it]INFO:root:Finished episode 420 after 361 timesteps. Steps Per Second 180.38
+INFO:root:Episode reward: 175.22190572103074
+INFO:root:Average of last 5 rewards: 150.28
+INFO:root:Average of last 2 rewards: 122.76
+INFO:root:Current Electrical Cost: $0.026249224166666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.998228410073555C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1137.0
+INFO:root:Total Time cooling : 0.0
+ 43%|███████████████████████████████████████████████████████████████▏                                                                                   | 430/1000 [14:18<12:59,  1.37s/it]INFO:root:Finished episode 430 after 361 timesteps. Steps Per Second 180.85
+INFO:root:Episode reward: 156.62301716419694
+INFO:root:Average of last 5 rewards: 168.37
+INFO:root:Average of last 2 rewards: 167.15
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.233859631496983C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 44%|████████████████████████████████████████████████████████████████▋                                                                                  | 440/1000 [14:36<12:38,  1.35s/it]INFO:root:Finished episode 440 after 361 timesteps. Steps Per Second 181.28
+INFO:root:Episode reward: 179.29670420940178
+INFO:root:Average of last 5 rewards: 169.05
+INFO:root:Average of last 2 rewards: 170.33
+INFO:root:Current Electrical Cost: $0.0289155425
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.272947250890883C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1247.0
+INFO:root:Total Time cooling : 0.0
+ 45%|██████████████████████████████████████████████████████████████████▏                                                                                | 450/1000 [14:54<13:25,  1.46s/it]INFO:root:Finished episode 450 after 361 timesteps. Steps Per Second 181.51
+INFO:root:Episode reward: 167.9977068872158
+INFO:root:Average of last 5 rewards: 172.57
+INFO:root:Average of last 2 rewards: 165.30
+INFO:root:Current Electrical Cost: $0.022528698333333336
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.981303460083595C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 976.0
+INFO:root:Total Time cooling : 0.0
+ 46%|███████████████████████████████████████████████████████████████████▌                                                                               | 460/1000 [15:13<12:08,  1.35s/it]INFO:root:Finished episode 460 after 361 timesteps. Steps Per Second 181.77
+INFO:root:Episode reward: 174.07012936009355
+INFO:root:Average of last 5 rewards: 172.34
+INFO:root:Average of last 2 rewards: 173.99
+INFO:root:Current Electrical Cost: $0.026249224166666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.23151826067111C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1137.0
+INFO:root:Total Time cooling : 0.0
+ 47%|█████████████████████████████████████████████████████████████████████                                                                              | 470/1000 [15:31<12:04,  1.37s/it]INFO:root:Finished episode 470 after 361 timesteps. Steps Per Second 182.15
+INFO:root:Episode reward: 164.25769600781112
+INFO:root:Average of last 5 rewards: 173.79
+INFO:root:Average of last 2 rewards: 170.39
+INFO:root:Current Electrical Cost: $0.02846392166666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.274567509807788C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1227.0
+INFO:root:Total Time cooling : 0.0
+ 48%|██████████████████████████████████████████████████████████████████████▌                                                                            | 480/1000 [15:48<11:11,  1.29s/it]INFO:root:Finished episode 480 after 361 timesteps. Steps Per Second 182.69
+INFO:root:Episode reward: 176.4563861394212
+INFO:root:Average of last 5 rewards: 134.55
+INFO:root:Average of last 2 rewards: 161.48
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.358665445879076C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 49%|████████████████████████████████████████████████████████████████████████                                                                           | 490/1000 [16:06<11:11,  1.32s/it]INFO:root:Finished episode 490 after 361 timesteps. Steps Per Second 183.11
+INFO:root:Episode reward: 163.57061643048883
+INFO:root:Average of last 5 rewards: 170.02
+INFO:root:Average of last 2 rewards: 169.98
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.208679964973594C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 50%|█████████████████████████████████████████████████████████████████████████▌                                                                         | 500/1000 [16:23<11:10,  1.34s/it]INFO:root:Finished episode 500 after 361 timesteps. Steps Per Second 183.57
+INFO:root:Episode reward: 179.01678385678778
+INFO:root:Average of last 5 rewards: 165.86
+INFO:root:Average of last 2 rewards: 172.62
+INFO:root:Current Electrical Cost: $0.029407697500000003
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.348107945867223C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1267.0
+INFO:root:Total Time cooling : 0.0
+ 51%|██████████████████████████████████████████████████████████████████████████▉                                                                        | 510/1000 [16:40<10:38,  1.30s/it]INFO:root:Finished episode 510 after 361 timesteps. Steps Per Second 184.00
+INFO:root:Episode reward: 158.3557683877878
+INFO:root:Average of last 5 rewards: 154.21
+INFO:root:Average of last 2 rewards: 157.24
+INFO:root:Current Electrical Cost: $0.030175293333333332
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.553516687575744C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1308.0
+INFO:root:Total Time cooling : 0.0
+ 52%|████████████████████████████████████████████████████████████████████████████▍                                                                      | 520/1000 [16:57<10:21,  1.29s/it]INFO:root:Finished episode 520 after 361 timesteps. Steps Per Second 184.46
+INFO:root:Episode reward: 180.0095863889029
+INFO:root:Average of last 5 rewards: 178.24
+INFO:root:Average of last 2 rewards: 178.52
+INFO:root:Current Electrical Cost: $0.02813677583333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.891257037097656C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1217.0
+INFO:root:Total Time cooling : 0.0
+ 53%|█████████████████████████████████████████████████████████████████████████████▉                                                                     | 530/1000 [17:14<10:37,  1.36s/it]INFO:root:Finished episode 530 after 361 timesteps. Steps Per Second 184.87
+INFO:root:Episode reward: 151.4696683523229
+INFO:root:Average of last 5 rewards: 167.11
+INFO:root:Average of last 2 rewards: 165.69
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.00217303519962C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 54%|███████████████████████████████████████████████████████████████████████████████▍                                                                   | 540/1000 [17:32<10:15,  1.34s/it]INFO:root:Finished episode 540 after 361 timesteps. Steps Per Second 185.23
+INFO:root:Episode reward: 177.32956993943282
+INFO:root:Average of last 5 rewards: 167.54
+INFO:root:Average of last 2 rewards: 176.45
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.249047582939504C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 55%|████████████████████████████████████████████████████████████████████████████████▊                                                                  | 550/1000 [17:49<09:56,  1.33s/it]INFO:root:Finished episode 550 after 361 timesteps. Steps Per Second 185.59
+INFO:root:Episode reward: 165.49898036681185
+INFO:root:Average of last 5 rewards: 168.17
+INFO:root:Average of last 2 rewards: 166.62
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.357299596291867C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 56%|██████████████████████████████████████████████████████████████████████████████████▎                                                                | 560/1000 [18:07<10:00,  1.37s/it]INFO:root:Finished episode 560 after 361 timesteps. Steps Per Second 185.90
+INFO:root:Episode reward: 179.59457793354784
+INFO:root:Average of last 5 rewards: 158.77
+INFO:root:Average of last 2 rewards: 165.75
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.234254862716707C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 57%|███████████████████████████████████████████████████████████████████████████████████▊                                                               | 570/1000 [18:24<09:19,  1.30s/it]INFO:root:Finished episode 570 after 361 timesteps. Steps Per Second 186.28
+INFO:root:Episode reward: 160.99383055677708
+INFO:root:Average of last 5 rewards: 172.81
+INFO:root:Average of last 2 rewards: 169.42
+INFO:root:Current Electrical Cost: $0.026249224166666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.292727946370658C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1137.0
+INFO:root:Total Time cooling : 0.0
+ 58%|█████████████████████████████████████████████████████████████████████████████████████▎                                                             | 580/1000 [18:42<09:29,  1.36s/it]INFO:root:Finished episode 580 after 361 timesteps. Steps Per Second 186.60
+INFO:root:Episode reward: 131.34237361883393
+INFO:root:Average of last 5 rewards: 161.19
+INFO:root:Average of last 2 rewards: 155.61
+INFO:root:Current Electrical Cost: $0.03087299166666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.543383900114407C
+INFO:root:Number of times Heating turned on: 9
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1338.0
+INFO:root:Total Time cooling : 0.0
+ 59%|██████████████████████████████████████████████████████████████████████████████████████▋                                                            | 590/1000 [18:59<09:02,  1.32s/it]INFO:root:Finished episode 590 after 361 timesteps. Steps Per Second 186.94
+INFO:root:Episode reward: 175.42705249120277
+INFO:root:Average of last 5 rewards: 162.78
+INFO:root:Average of last 2 rewards: 169.33
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.51980130503662C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 60%|████████████████████████████████████████████████████████████████████████████████████████▏                                                          | 600/1000 [19:16<08:36,  1.29s/it]INFO:root:Finished episode 600 after 361 timesteps. Steps Per Second 187.33
+INFO:root:Episode reward: 164.11067466465508
+INFO:root:Average of last 5 rewards: 151.50
+INFO:root:Average of last 2 rewards: 152.73
+INFO:root:Current Electrical Cost: $0.024210706666666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.940256695265205C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1046.0
+INFO:root:Total Time cooling : 0.0
+ 61%|█████████████████████████████████████████████████████████████████████████████████████████▋                                                         | 610/1000 [19:33<08:44,  1.35s/it]INFO:root:Finished episode 610 after 361 timesteps. Steps Per Second 187.63
+INFO:root:Episode reward: 164.71472933062648
+INFO:root:Average of last 5 rewards: 171.22
+INFO:root:Average of last 2 rewards: 167.64
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.455680162258854C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 62%|███████████████████████████████████████████████████████████████████████████████████████████▏                                                       | 620/1000 [19:51<08:36,  1.36s/it]INFO:root:Finished episode 620 after 361 timesteps. Steps Per Second 187.92
+INFO:root:Episode reward: 179.09783021668468
+INFO:root:Average of last 5 rewards: 172.69
+INFO:root:Average of last 2 rewards: 176.68
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.104523437805128C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 63%|████████████████████████████████████████████████████████████████████████████████████████████▌                                                      | 630/1000 [20:08<08:05,  1.31s/it]INFO:root:Finished episode 630 after 361 timesteps. Steps Per Second 188.21
+INFO:root:Episode reward: 178.96881458315326
+INFO:root:Average of last 5 rewards: 162.69
+INFO:root:Average of last 2 rewards: 155.76
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.244378949778344C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 64%|██████████████████████████████████████████████████████████████████████████████████████████████                                                     | 640/1000 [20:25<07:45,  1.29s/it]INFO:root:Finished episode 640 after 361 timesteps. Steps Per Second 188.55
+INFO:root:Episode reward: 178.89191662663026
+INFO:root:Average of last 5 rewards: 149.21
+INFO:root:Average of last 2 rewards: 157.51
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.051456651028555C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 65%|███████████████████████████████████████████████████████████████████████████████████████████████▌                                                   | 650/1000 [20:42<07:42,  1.32s/it]INFO:root:Finished episode 650 after 361 timesteps. Steps Per Second 188.83
+INFO:root:Episode reward: 179.11020853250642
+INFO:root:Average of last 5 rewards: 176.12
+INFO:root:Average of last 2 rewards: 178.87
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.025971112157716C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 66%|█████████████████████████████████████████████████████████████████████████████████████████████████                                                  | 660/1000 [20:59<07:16,  1.28s/it]INFO:root:Finished episode 660 after 361 timesteps. Steps Per Second 189.17
+INFO:root:Episode reward: 171.01018248567414
+INFO:root:Average of last 5 rewards: 172.55
+INFO:root:Average of last 2 rewards: 173.28
+INFO:root:Current Electrical Cost: $0.024005163333333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.517325563595485C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1036.0
+INFO:root:Total Time cooling : 0.0
+ 67%|██████████████████████████████████████████████████████████████████████████████████████████████████▍                                                | 670/1000 [21:16<07:27,  1.36s/it]INFO:root:Finished episode 670 after 361 timesteps. Steps Per Second 189.42
+INFO:root:Episode reward: 137.48309696585744
+INFO:root:Average of last 5 rewards: 167.62
+INFO:root:Average of last 2 rewards: 158.69
+INFO:root:Current Electrical Cost: $0.0264547675
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.794929402574976C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1147.0
+INFO:root:Total Time cooling : 0.0
+ 68%|███████████████████████████████████████████████████████████████████████████████████████████████████▉                                               | 680/1000 [21:34<07:16,  1.36s/it]INFO:root:Finished episode 680 after 361 timesteps. Steps Per Second 189.65
+INFO:root:Episode reward: 179.7077708795492
+INFO:root:Average of last 5 rewards: 168.40
+INFO:root:Average of last 2 rewards: 170.42
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.020161409930836C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 69%|█████████████████████████████████████████████████████████████████████████████████████████████████████▍                                             | 690/1000 [21:51<07:03,  1.37s/it]INFO:root:Finished episode 690 after 361 timesteps. Steps Per Second 189.87
+INFO:root:Episode reward: 174.71115763710705
+INFO:root:Average of last 5 rewards: 171.55
+INFO:root:Average of last 2 rewards: 174.80
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.104179315147928C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 70%|██████████████████████████████████████████████████████████████████████████████████████████████████████▉                                            | 700/1000 [22:09<06:46,  1.36s/it]INFO:root:Finished episode 700 after 361 timesteps. Steps Per Second 190.07
+INFO:root:Episode reward: 155.2976458010872
+INFO:root:Average of last 5 rewards: 173.02
+INFO:root:Average of last 2 rewards: 166.67
+INFO:root:Current Electrical Cost: $0.029764206666666664
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.225382733087226C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1288.0
+INFO:root:Total Time cooling : 0.0
+ 71%|████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                          | 710/1000 [22:26<06:12,  1.28s/it]INFO:root:Finished episode 710 after 361 timesteps. Steps Per Second 190.39
+INFO:root:Episode reward: 134.29910844019503
+INFO:root:Average of last 5 rewards: 169.85
+INFO:root:Average of last 2 rewards: 157.14
+INFO:root:Current Electrical Cost: $0.031651758333333335
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 21.05049363726225C
+INFO:root:Number of times Heating turned on: 9
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1368.0
+INFO:root:Total Time cooling : 0.0
+ 72%|█████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                         | 720/1000 [22:43<06:10,  1.32s/it]INFO:root:Finished episode 720 after 361 timesteps. Steps Per Second 190.67
+INFO:root:Episode reward: 179.73923449668507
+INFO:root:Average of last 5 rewards: 168.20
+INFO:root:Average of last 2 rewards: 160.29
+INFO:root:Current Electrical Cost: $0.026249224166666665
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.061916287288103C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1137.0
+INFO:root:Total Time cooling : 0.0
+ 73%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                       | 730/1000 [23:00<05:53,  1.31s/it]INFO:root:Finished episode 730 after 361 timesteps. Steps Per Second 190.94
+INFO:root:Episode reward: 164.08738308222058
+INFO:root:Average of last 5 rewards: 163.62
+INFO:root:Average of last 2 rewards: 167.10
+INFO:root:Current Electrical Cost: $0.02585633
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.342055379536724C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1116.0
+INFO:root:Total Time cooling : 0.0
+ 74%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                                      | 740/1000 [23:16<05:33,  1.28s/it]INFO:root:Finished episode 740 after 361 timesteps. Steps Per Second 191.23
+INFO:root:Episode reward: 164.55888355268428
+INFO:root:Average of last 5 rewards: 165.65
+INFO:root:Average of last 2 rewards: 163.52
+INFO:root:Current Electrical Cost: $0.029764206666666664
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.54598427123196C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1288.0
+INFO:root:Total Time cooling : 0.0
+ 75%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                    | 750/1000 [23:33<05:20,  1.28s/it]INFO:root:Finished episode 750 after 361 timesteps. Steps Per Second 191.52
+INFO:root:Episode reward: 179.40105197176337
+INFO:root:Average of last 5 rewards: 177.49
+INFO:root:Average of last 2 rewards: 176.70
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.14323185600458C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 76%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                   | 760/1000 [23:51<05:24,  1.35s/it]INFO:root:Finished episode 760 after 361 timesteps. Steps Per Second 191.71
+INFO:root:Episode reward: 169.80658280823724
+INFO:root:Average of last 5 rewards: 147.65
+INFO:root:Average of last 2 rewards: 152.61
+INFO:root:Current Electrical Cost: $0.022323155
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.01820582732081C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 966.0
+INFO:root:Total Time cooling : 0.0
+ 77%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                                 | 770/1000 [24:08<05:12,  1.36s/it]INFO:root:Finished episode 770 after 361 timesteps. Steps Per Second 191.90
+INFO:root:Episode reward: 170.34382736942953
+INFO:root:Average of last 5 rewards: 171.71
+INFO:root:Average of last 2 rewards: 169.08
+INFO:root:Current Electrical Cost: $0.02846392166666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.384820856251103C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1227.0
+INFO:root:Total Time cooling : 0.0
+ 78%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                                | 780/1000 [24:25<04:45,  1.30s/it]INFO:root:Finished episode 780 after 361 timesteps. Steps Per Second 192.13
+INFO:root:Episode reward: 171.72333484461683
+INFO:root:Average of last 5 rewards: 170.25
+INFO:root:Average of last 2 rewards: 175.19
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.227872336381218C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 79%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                              | 790/1000 [24:42<04:44,  1.36s/it]INFO:root:Finished episode 790 after 361 timesteps. Steps Per Second 192.31
+INFO:root:Episode reward: 166.37792206807728
+INFO:root:Average of last 5 rewards: 168.26
+INFO:root:Average of last 2 rewards: 165.80
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.27651237558671C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 80%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                             | 800/1000 [24:59<04:18,  1.29s/it]INFO:root:Finished episode 800 after 361 timesteps. Steps Per Second 192.54
+INFO:root:Episode reward: 173.4964104003507
+INFO:root:Average of last 5 rewards: 175.75
+INFO:root:Average of last 2 rewards: 174.08
+INFO:root:Current Electrical Cost: $0.025481628333333332
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.208174606215085C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1096.0
+INFO:root:Total Time cooling : 0.0
+ 81%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                            | 810/1000 [25:17<04:14,  1.34s/it]INFO:root:Finished episode 810 after 361 timesteps. Steps Per Second 192.75
+INFO:root:Episode reward: 179.8831347462416
+INFO:root:Average of last 5 rewards: 171.08
+INFO:root:Average of last 2 rewards: 179.56
+INFO:root:Current Electrical Cost: $0.022528698333333336
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.85442564133083C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 976.0
+INFO:root:Total Time cooling : 0.0
+ 82%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                          | 820/1000 [25:33<03:52,  1.29s/it]INFO:root:Finished episode 820 after 361 timesteps. Steps Per Second 192.97
+INFO:root:Episode reward: 173.99928931111674
+INFO:root:Average of last 5 rewards: 171.52
+INFO:root:Average of last 2 rewards: 175.27
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.21858348349501C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 83%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                         | 830/1000 [25:51<03:49,  1.35s/it]INFO:root:Finished episode 830 after 361 timesteps. Steps Per Second 193.13
+INFO:root:Episode reward: 179.8505934376597
+INFO:root:Average of last 5 rewards: 173.21
+INFO:root:Average of last 2 rewards: 171.39
+INFO:root:Current Electrical Cost: $0.024251240833333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 18.83146142669668C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1046.0
+INFO:root:Total Time cooling : 0.0
+ 84%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                       | 840/1000 [26:08<03:29,  1.31s/it]INFO:root:Finished episode 840 after 361 timesteps. Steps Per Second 193.35
+INFO:root:Episode reward: 156.25418601297238
+INFO:root:Average of last 5 rewards: 168.47
+INFO:root:Average of last 2 rewards: 161.93
+INFO:root:Current Electrical Cost: $0.01860262916666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 16.678566513135987C
+INFO:root:Number of times Heating turned on: 5
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 805.0
+INFO:root:Total Time cooling : 0.0
+ 85%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                      | 850/1000 [26:25<03:13,  1.29s/it]INFO:root:Finished episode 850 after 361 timesteps. Steps Per Second 193.57
+INFO:root:Episode reward: 172.67509377640727
+INFO:root:Average of last 5 rewards: 169.42
+INFO:root:Average of last 2 rewards: 176.21
+INFO:root:Current Electrical Cost: $0.022528698333333336
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.813566919383824C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 976.0
+INFO:root:Total Time cooling : 0.0
+ 86%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                    | 860/1000 [26:42<03:15,  1.40s/it]INFO:root:Finished episode 860 after 361 timesteps. Steps Per Second 193.70
+INFO:root:Episode reward: 168.43020382761736
+INFO:root:Average of last 5 rewards: 172.91
+INFO:root:Average of last 2 rewards: 170.20
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.371458045684395C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 87%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                   | 870/1000 [27:01<03:02,  1.41s/it]INFO:root:Finished episode 870 after 361 timesteps. Steps Per Second 193.72
+INFO:root:Episode reward: 174.4297988169722
+INFO:root:Average of last 5 rewards: 176.43
+INFO:root:Average of last 2 rewards: 173.27
+INFO:root:Current Electrical Cost: $0.02895607666666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.365684317267537C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1247.0
+INFO:root:Total Time cooling : 0.0
+  88%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                 | 880/1000 [27:19<02:42,  1.35s/it]INFO:root:Finished episode 880 after 361 timesteps. Steps Per Second 193.79
+INFO:root:Episode reward: 174.29222791145364
+INFO:root:Average of last 5 rewards: 158.10
+INFO:root:Average of last 2 rewards: 170.91
+INFO:root:Current Electrical Cost: $0.029969749999999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.33213679483477C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1298.0
+INFO:root:Total Time cooling : 0.0
+ 89%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                | 890/1000 [27:38<02:38,  1.44s/it]INFO:root:Finished episode 890 after 361 timesteps. Steps Per Second 193.69
+INFO:root:Episode reward: 177.37698561095382
+INFO:root:Average of last 5 rewards: 177.86
+INFO:root:Average of last 2 rewards: 175.87
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.19165453843959C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎              | 900/1000 [27:56<02:12,  1.32s/it]INFO:root:Finished episode 900 after 361 timesteps. Steps Per Second 193.83
+INFO:root:Episode reward: 179.59870328977075
+INFO:root:Average of last 5 rewards: 175.29
+INFO:root:Average of last 2 rewards: 173.81
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.13845543888316C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 91%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊             | 910/1000 [28:14<02:07,  1.42s/it]INFO:root:Finished episode 910 after 361 timesteps. Steps Per Second 193.89
+INFO:root:Episode reward: 176.03262349081984
+INFO:root:Average of last 5 rewards: 175.65
+INFO:root:Average of last 2 rewards: 174.30
+INFO:root:Current Electrical Cost: $0.02846392166666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.373935253554652C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1227.0
+INFO:root:Total Time cooling : 0.0
+ 92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏           | 920/1000 [28:32<01:51,  1.40s/it]INFO:root:Finished episode 920 after 361 timesteps. Steps Per Second 193.95
+INFO:root:Episode reward: 179.93690483589563
+INFO:root:Average of last 5 rewards: 171.67
+INFO:root:Average of last 2 rewards: 175.33
+INFO:root:Current Electrical Cost: $0.022323155
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 17.886955331629217C
+INFO:root:Number of times Heating turned on: 6
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 966.0
+INFO:root:Total Time cooling : 0.0
+ 93%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋          | 930/1000 [28:50<01:35,  1.37s/it]INFO:root:Finished episode 930 after 361 timesteps. Steps Per Second 194.02
+INFO:root:Episode reward: 148.2183363103613
+INFO:root:Average of last 5 rewards: 166.81
+INFO:root:Average of last 2 rewards: 162.11
+INFO:root:Current Electrical Cost: $0.028628930833333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.10338916816165C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1237.0
+INFO:root:Total Time cooling : 0.0
+ 94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏        | 940/1000 [29:08<01:21,  1.36s/it]INFO:root:Finished episode 940 after 361 timesteps. Steps Per Second 194.10
+INFO:root:Episode reward: 179.33639101093462
+INFO:root:Average of last 5 rewards: 165.31
+INFO:root:Average of last 2 rewards: 165.41
+INFO:root:Current Electrical Cost: $0.02895607666666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.41017048126599C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1247.0
+INFO:root:Total Time cooling : 0.0
+ 95%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋       | 950/1000 [29:26<01:08,  1.36s/it]INFO:root:Finished episode 950 after 361 timesteps. Steps Per Second 194.16
+INFO:root:Episode reward: 179.93914644610823
+INFO:root:Average of last 5 rewards: 177.48
+INFO:root:Average of last 2 rewards: 178.49
+INFO:root:Current Electrical Cost: $0.02821784416666667
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 20.17422638409817C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1217.0
+INFO:root:Total Time cooling : 0.0
+ 96%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████      | 960/1000 [29:44<00:55,  1.38s/it]INFO:root:Finished episode 960 after 361 timesteps. Steps Per Second 194.23
+INFO:root:Episode reward: 144.66930493492322
+INFO:root:Average of last 5 rewards: 156.91
+INFO:root:Average of last 2 rewards: 149.59
+INFO:root:Current Electrical Cost: $0.026946922499999998
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.480524899811634C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1167.0
+INFO:root:Total Time cooling : 0.0
+ 97%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌    | 970/1000 [30:01<00:40,  1.36s/it]INFO:root:Finished episode 970 after 361 timesteps. Steps Per Second 194.33
+INFO:root:Episode reward: 180.26722056652795
+INFO:root:Average of last 5 rewards: 167.50
+INFO:root:Average of last 2 rewards: 171.72
+INFO:root:Current Electrical Cost: $0.02604368083333333
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.16069660423025C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1127.0
+INFO:root:Total Time cooling : 0.0
+ 98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████   | 980/1000 [30:20<00:28,  1.44s/it]INFO:root:Finished episode 980 after 361 timesteps. Steps Per Second 194.38
+INFO:root:Episode reward: 169.24195473517656
+INFO:root:Average of last 5 rewards: 172.12
+INFO:root:Average of last 2 rewards: 173.72
+INFO:root:Current Electrical Cost: $0.025235550833333332
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.18936903193609C
+INFO:root:Number of times Heating turned on: 7
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1086.0
+INFO:root:Total Time cooling : 0.0
+ 99%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌ | 990/1000 [30:37<00:14,  1.42s/it]INFO:root:Finished episode 990 after 361 timesteps. Steps Per Second 194.45
+INFO:root:Episode reward: 111.62876277451109
+INFO:root:Average of last 5 rewards: 156.11
+INFO:root:Average of last 2 rewards: 139.73
+INFO:root:Current Electrical Cost: $0.033484732499999996
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 21.31451036266366C
+INFO:root:Number of times Heating turned on: 9
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1449.0
+INFO:root:Total Time cooling : 0.0
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [30:57<00:00,  1.52s/it]INFO:root:Finished episode 1000 after 361 timesteps. Steps Per Second 194.34
+INFO:root:Episode reward: 175.1645877720136
+INFO:root:Average of last 5 rewards: 174.10
+INFO:root:Average of last 2 rewards: 175.93
+INFO:root:Current Electrical Cost: $0.0274390775
+INFO:root:Current Gas Cost: $0.0
+INFO:root:Current temperature: 19.49658885778693C
+INFO:root:Number of times Heating turned on: 8
+INFO:root:Number of times Cooling turned on: 0
+INFO:root:Total Time heating : 1187.0
+INFO:root:Total Time cooling : 0.0
+
+INFO:root:Learning finished. Total episodes: 1000
