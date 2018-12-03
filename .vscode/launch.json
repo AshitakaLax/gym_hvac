@@ -21,7 +21,7 @@
 				"-a", "examples/configs/ppo.json", 
 				"-n", "examples/configs/hvac_test_network.json", 
 				"-e", "1000", 
-				"-m", "360"],
+				"-m", "180"],
 			"console": "integratedTerminal"
 		},
 		{

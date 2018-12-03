@@ -28,6 +28,8 @@ import logging
 import os
 import time
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
 
 from tensorforce import TensorForceError
 from tensorforce.agents import Agent
@@ -134,21 +136,32 @@ def main():
     if args.debug:  # TODO: Timestep-based reporting
         report_episodes = 1
     else:
-        report_episodes = 10
+        report_episodes = 1
 
     logger.info("Starting {agent} for Environment '{env}'".format(agent=agent, env=environment))
-
+    totalCostArr = []
+    rewardArr = []
+    temperatureArr = []
+    episodeArr = []
+    
     def episode_finished(r, id_):
         if r.episode % report_episodes == 0:
+            episodeArr.append(r.episode)
             steps_per_second = r.timestep / (time.time() - r.start_time)
             logger.info("Finished episode {:d} after {:d} timesteps. Steps Per Second {:0.2f}".format(
                 r.agent.episode, r.episode_timestep, steps_per_second
             ))
+            electricalCost = r.environment.gym.hvacBuilding.CalculateElectricEneregyCost()
+            gasCost = r.environment.gym.hvacBuilding.CalculateGasEneregyCost()
+            rewardArr.append(r.episode_rewards[-1])
+            temperatureArr.append(r.environment.gym.hvacBuilding.current_temperature)
+            totalCostArr.append(electricalCost + gasCost)
+
             logger.info("Episode reward: {}".format(r.episode_rewards[-1]))
-            logger.info("Average of last 5 rewards: {:0.2f}".
-                        format(sum(r.episode_rewards[-5:]) / min(5, len(r.episode_rewards))))
-            logger.info("Average of last 2 rewards: {:0.2f}".
-                        format(sum(r.episode_rewards[-2:]) / min(2, len(r.episode_rewards))))
+            #logger.info("Average of last 5 rewards: {:0.2f}".
+            #            format(sum(r.episode_rewards[-5:]) / min(5, len(r.episode_rewards))))
+            #logger.info("Average of last 2 rewards: {:0.2f}".
+            #            format(sum(r.episode_rewards[-2:]) / min(2, len(r.episode_rewards))))
             logger.info("Current Electrical Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateElectricEneregyCost()))
             logger.info("Current Gas Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateGasEneregyCost()))
             logger.info("Current temperature: {}C".format(r.environment.gym.hvacBuilding.current_temperature))
@@ -172,7 +185,12 @@ def main():
         sleep=args.sleep
     )
     runner.close()
-
+    plt.scatter(episodeArr, rewardArr, label='reward')
+    plt.scatter(episodeArr, totalCostArr, label='cost')
+    plt.scatter(episodeArr, temperatureArr, label='Temp(C)')
+    plt.legend(loc='upper left')
+    plt.xlabel('number of episodes', fontsize=18)
+    plt.show()
     logger.info("Learning finished. Total episodes: {ep}".format(ep=runner.agent.episode))
 
 
