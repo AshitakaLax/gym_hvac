@@ -117,10 +117,8 @@ class HvacBuilding():
 		
 		if temperatureReward < 1:
 			temperatureReward = 1
-		if temperatureReward < 2:
-			temperatureReward = 1-(temperatureReward / 2)
 		else:
-			temperatureReward = 0.0
+			temperatureReward = 1-(temperatureReward / 100)
 
 		#reward = reward + temperatureReward
 		return temperatureReward
