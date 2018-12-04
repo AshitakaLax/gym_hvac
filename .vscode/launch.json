@@ -20,8 +20,8 @@
 				"Hvac-v0", 
 				"-a", "examples/configs/ppo.json", 
 				"-n", "examples/configs/hvac_test_network.json", 
-				"-e", "1000", 
-				"-m", "180"],
+				"-e", "100", 
+				"-m", "2880"],
 			"console": "integratedTerminal"
 		},
 		{

@@ -136,7 +136,7 @@ def main():
     if args.debug:  # TODO: Timestep-based reporting
         report_episodes = 1
     else:
-        report_episodes = 1
+        report_episodes = 10
 
     logger.info("Starting {agent} for Environment '{env}'".format(agent=agent, env=environment))
     totalCostArr = []
@@ -158,10 +158,10 @@ def main():
             totalCostArr.append(electricalCost + gasCost)
 
             logger.info("Episode reward: {}".format(r.episode_rewards[-1]))
-            #logger.info("Average of last 5 rewards: {:0.2f}".
-            #            format(sum(r.episode_rewards[-5:]) / min(5, len(r.episode_rewards))))
-            #logger.info("Average of last 2 rewards: {:0.2f}".
-            #            format(sum(r.episode_rewards[-2:]) / min(2, len(r.episode_rewards))))
+            logger.info("Average of last 5 rewards: {:0.2f}".
+                        format(sum(r.episode_rewards[-5:]) / min(5, len(r.episode_rewards))))
+            logger.info("Average of last 2 rewards: {:0.2f}".
+                        format(sum(r.episode_rewards[-2:]) / min(2, len(r.episode_rewards))))
             logger.info("Current Electrical Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateElectricEneregyCost()))
             logger.info("Current Gas Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateGasEneregyCost()))
             logger.info("Current temperature: {}C".format(r.environment.gym.hvacBuilding.current_temperature))

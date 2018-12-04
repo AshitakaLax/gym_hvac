@@ -43,11 +43,11 @@ class HvacEnv(gym.Env):
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
-		self.env_step_interval = 10
+		self.env_step_interval = 30
 		self.step_max = 3600
 		# the observation currnently the average cost per second
-		low = np.array([0.0, -30.0, 0.0, 0.0])
-		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 60.0, 1.0, 1.0])
+		low = np.array([0.0, -30.0, 0.0, 0.0, -10.0])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 60.0, 1.0, 1.0, 10.0])
 		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
 
@@ -81,9 +81,12 @@ class HvacEnv(gym.Env):
                  use this for learning.
         """
 		assert self.action_space.contains(action)
+		# get the current temperature to calculate the delta
+		previousTemp = self.hvacBuilding.current_temperature 
 		self._take_action(action)
-		self.hvacBuilding
-		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, float(self.hvacBuilding.building_hvac.HeatingIsOn), float(self.hvacBuilding.building_hvac.CoolingIsOn))
+		afterTemp = self.hvacBuilding.current_temperature 
+		deltaTemp = previousTemp - afterTemp
+		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, float(self.hvacBuilding.building_hvac.HeatingIsOn), float(self.hvacBuilding.building_hvac.CoolingIsOn), deltaTemp)
 
 		#self.status = self.env.step()
 		reward = self._get_reward()
@@ -99,7 +102,7 @@ class HvacEnv(gym.Env):
 		self.step_count = 0
 		self.step_max = 3600
 		self.step_after_done = 0
-		self.state = (0.0, self.hvacBuilding.current_temperature, 0.0, 0.0)
+		self.state = (0.0, self.hvacBuilding.current_temperature, 0.0, 0.0, 0.0)
 		return np.array(self.state)
 
 	def render(self, mode='human', close=False):
