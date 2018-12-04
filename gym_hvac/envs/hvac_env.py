@@ -28,7 +28,33 @@ class HvacEnv(gym.Env):
 		heat_transmission=200, initial_building_temperature=10, 
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
-
+		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00]
+		self.__loganOutsideTemperatures =[
+-7
+,-8
+,-8
+,-8
+,-8
+,-9
+,-10
+,-9
+,-8
+,-7
+,-4
+,-2
+,-3
+,-2
+,-2
+,-1
+,-2
+,-3
+,-3
+,-4
+,-4
+,-4
+,-4
+,-4
+]
 
 		self.OutsideTemperature = outsideTemperature
 		self.hvacBuilding = hvacBuilding
@@ -120,8 +146,11 @@ class HvacEnv(gym.Env):
 			self.hvacBuilding.building_hvac.TurnHeatingOn()
 		
 		# this will run through the simulation for 10 seconds
+		# get the time of day
+		hourOfDay = self.hvacBuilding.building_hvac.TotalTimeInSeconds / 60 
+		currentOutsideTemperature = self.__loganOutsideTemperatures[hourOfDay]
 		for	i in range(self.env_step_interval):
-			self.hvacBuilding.step(self.OutsideTemperature)
+			self.hvacBuilding.step(currentOutsideTemperature)
 
 		self.step_count = self.step_count + 1
 	
