@@ -18,7 +18,7 @@
 			"program": "${workspaceFolder}/tensor_force_gym_hvac.py",
 			"args": [
 				"Hvac-v0", 
-				"-a", "examples/configs/dqfd.json", 
+				"-a", "examples/configs/vpg.json", 
 				"-n", "examples/configs/mlp2_normalized_network.json", 
 				"-e", "1000", 
 				"-D",
@@ -32,7 +32,7 @@
 			"program": "${workspaceFolder}/tensor_force_gym_hvac.py",
 			"args": [
 				"Hvac-v0", 
-				"-a", "examples/configs/ppo.json", 
+				"-a", "examples/configs/trpo.json", //currently trpo is promising since it didn't get stuck
 				"-n", "examples/configs/hvac_test_network.json", 
 				"-e", "100", 
 				"-D",
