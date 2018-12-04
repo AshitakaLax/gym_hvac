@@ -25,7 +25,7 @@ class HvacEnv(gym.Env):
 		tracker = HvacBuildingTracker()
 		conditioned_floor_area = 100
 		hvacBuilding = HvacBuilding(hvac, heat_mass_capacity=16500 * conditioned_floor_area, 
-		heat_transmission=200, initial_building_temperature=10, 
+		heat_transmission=200, initial_building_temperature=24, 
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
 		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00, 0.00]
@@ -55,6 +55,33 @@ class HvacEnv(gym.Env):
 ,-4
 ,-4
 ,-4
+]
+		self.__loganOutsideTemperatures2 =[
+37
+,38
+,38
+,38
+,38
+,39
+,40
+,39
+,38
+,37
+,34
+,32
+,33
+,32
+,32
+,31
+,32
+,33
+,33
+,34
+,34
+,34
+,34
+,34
+,34
 ]
 
 		self.OutsideTemperature = outsideTemperature

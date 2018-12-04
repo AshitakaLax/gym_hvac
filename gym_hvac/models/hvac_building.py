@@ -112,9 +112,11 @@ class HvacBuilding():
 		
 		# currently we are saying that anything that varies from 19.0 C is have less of a reward
 		# divided by 3 to be the diviation tolerance
-		
-		temperatureReward = abs(self.current_temperature - 19.0)
-		
+		if self.current_temperature > 19:
+			temperatureReward = self.current_temperature - 19
+		else:
+			temperatureReward = 19 - self.current_temperature
+			
 		if temperatureReward < 1:
 			temperatureReward = 1
 		else:
@@ -172,6 +174,3 @@ class HvacBuilding():
 
 		# get the cost per kwh
 		return electricKWHs * dollarsPerKiloWattHour
-
-
-

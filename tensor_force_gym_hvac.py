@@ -148,9 +148,11 @@ def main():
         if r.episode % report_episodes == 0:
             episodeArr.append(r.episode)
             steps_per_second = r.timestep / (time.time() - r.start_time)
+            logger.info("*****************************************************************")
             logger.info("Finished episode {:d} after {:d} timesteps. Steps Per Second {:0.2f}".format(
                 r.agent.episode, r.episode_timestep, steps_per_second
             ))
+            logger.info("*****************************************************************")
             electricalCost = r.environment.gym.hvacBuilding.CalculateElectricEneregyCost()
             gasCost = r.environment.gym.hvacBuilding.CalculateGasEneregyCost()
             rewardArr.append(r.episode_rewards[-1])
@@ -169,6 +171,7 @@ def main():
             logger.info("Number of times Cooling turned on: {}".format(r.environment.gym.hvacBuilding.building_hvac.NumberOfTimesCoolingTurnedOn))
             logger.info("Total Time heating : {}".format(r.environment.gym.hvacBuilding.building_hvac.TotalDurationHeatingOn))
             logger.info("Total Time cooling : {}".format(r.environment.gym.hvacBuilding.building_hvac.TotalDurationCoolingOn))
+            logger.info("*****************************************************************")
         if args.save and args.save_episodes is not None and not r.episode % args.save_episodes:
             logger.info("Saving agent to {}".format(args.save))
             r.agent.save_model(args.save)
