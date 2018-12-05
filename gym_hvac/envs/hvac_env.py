@@ -56,7 +56,7 @@ class HvacEnv(gym.Env):
 ,-4
 ,-4
 ]
-		self.__loganOutsideTemperatures2 =[
+		self.__loganOutsideTemperaturesC =[
 37
 ,38
 ,38
@@ -97,11 +97,11 @@ class HvacEnv(gym.Env):
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
-		self.env_step_interval = 30
+		self.env_step_interval = 60
 		self.step_max = 3600
-		# the observation currnently the average cost per second
-		low = np.array([0.0, -30.0, 0.0, 0.0, -10.0])
-		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 60.0, 1.0, 1.0, 10.0])
+		# the observation currnently the average cost per second, current
+		low = np.array([0.0, 10.0, 0.0, 0.0, -10.0])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 30.0, 1.0, 1.0, 10.0])
 		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
 
@@ -143,11 +143,14 @@ class HvacEnv(gym.Env):
 		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, float(self.hvacBuilding.building_hvac.HeatingIsOn), float(self.hvacBuilding.building_hvac.CoolingIsOn), deltaTemp)
 
 		#self.status = self.env.step()
-		reward = self._get_reward()
+		reward = self._get_reward(previousTemp)
 		#ob = self.env.getState()
 		done = False
 		if self.step_count >= self.step_max:
 			self.step_after_done = self.step_after_done + 1
+			done = True
+		# if the temperature goes way to far like 10 C or 30 C
+		if afterTemp < 10.0 or afterTemp > 30:
 			done = True
 		return np.array(self.state), reward, done, {self.hvacBuilding.current_temperature, self.hvacBuilding.building_hvac.CoolingIsOn }
 
@@ -184,6 +187,7 @@ class HvacEnv(gym.Env):
 
 		self.step_count = self.step_count + 1
 	
-	def _get_reward(self):
-		reward = self.hvacBuilding.DetermineReward()
+	def _get_reward(self, previousTemp:float):
+		reward = self.hvacBuilding.DetermineReward(previousTemp)
+		
 		return reward

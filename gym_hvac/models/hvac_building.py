@@ -88,21 +88,22 @@ class HvacBuilding():
 		"""
 		return (outsideTemperature, (self.current_temperature + 0.0), self.building_hvac.GetAverageWattsPerSecond())
 
-	# todo move this into its own agent that will have the its own Act, reward, step stuff
-	def Act(self, TurnCoolingOn:bool):
-		"""This is the action for the hvac building to execute, and return the reward
+	def DetermineReward(self, previousTemp: float):
 		
-		Arguments:
-			TurnCoolingOn {bool} -- True to turn on the cooling, false to turn off
-		"""
-		# todo we can make this smarter, so that it will require that it will stay within bounds
-		if TurnCoolingOn:
-			self.building_hvac.TurnCoolingOn()
-		else:
-			self.building_hvac.TurnCoolingOff()
-		return self.DetermineReward()
-
-	def DetermineReward(self):
+		# if the furance is turned is going in the right direction
+		if self.current_temperature < 20:
+			# check that we need to be increasing the temperature by having the furnace on
+			if previousTemp < self.current_temperature:
+				return 1.0
+		
+		if self.current_temperature > 20:
+			# check that we need to be increasing the temperature by having the furnace on
+			if previousTemp > self.current_temperature:
+				return 1.0
+		
+		return 0.0
+		
+	def DetermineRewardCurrentTemp(self):
 		# average watts per second
 		# the less the average the better
 		# -2 to scale the reward similar to 1
@@ -110,20 +111,22 @@ class HvacBuilding():
 		
 		#reward =  1-(self.building_hvac.GetAverageWattsPerSecond() / self.building_hvac.GetMaxCoolingPower()) 
 		
-		# currently we are saying that anything that varies from 19.0 C is have less of a reward
+		# currently we are saying that anything that varies from 20.0 C is have less of a reward
 		# divided by 3 to be the diviation tolerance
-		if self.current_temperature > 19:
-			temperatureReward = self.current_temperature - 19
+		if self.current_temperature > 20:
+			temperatureReward = self.current_temperature - 20
 		else:
-			temperatureReward = 19 - self.current_temperature
+			temperatureReward = 20 - self.current_temperature
 			
 		if temperatureReward < 1:
 			temperatureReward = 1
 		else:
-			temperatureReward = 1-(temperatureReward / 100)
+			temperatureReward = 1-(temperatureReward / 10)
 
 		#reward = reward + temperatureReward
 		return temperatureReward
+
+
 
 	def reset(self):
 		self.current_temperature = 18
