@@ -95,14 +95,18 @@ class HvacBuilding():
 			# check that we need to be increasing the temperature by having the furnace on
 			if previousTemp < self.current_temperature:
 				return 1.0
+			if self.building_hvac.HeatingIsOn:
+				return 1.0
 		
 		if self.current_temperature > 20:
 			# check that we need to be increasing the temperature by having the furnace on
 			if previousTemp > self.current_temperature:
 				return 1.0
+			if self.building_hvac.HeatingIsOn and self.building_hvac.HeatingIsShuttingDown:
+				return 1.0
 		
 		return 0.0
-		
+
 	def DetermineRewardCurrentTemp(self):
 		# average watts per second
 		# the less the average the better

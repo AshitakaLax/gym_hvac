@@ -100,6 +100,10 @@ class HVAC():
 		"""
 		self.CoolingIsOn = False
 
+	def TurnHvacOff(self):
+		self.TurnHeatingOff()
+		self.TurnCoolingOff()		
+
 	def TurnHeatingOn(self):
 		"""Turns the Heater on by starting the initial furnace sequence.
 		"""

@@ -3,8 +3,8 @@
 
     "update_mode": {
         "unit": "episodes",
-        "batch_size": 20,
-        "frequency": 20
+        "batch_size": 10,
+        "frequency": 10
     },
     "memory": {
         "type": "latest",
@@ -23,6 +23,12 @@
     "baseline":  null,
     "baseline_optimizer": null,
 
+    "actions_exploration": {
+        "type": "ornstein_uhlenbeck",
+        "sigma": 0.3,
+        "mu": 0.0,
+        "theta": 0.15
+    },
     "saver": {
         "directory": null,
         "seconds": 600

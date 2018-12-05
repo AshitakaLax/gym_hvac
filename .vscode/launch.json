@@ -19,10 +19,10 @@
 			"args": [
 				"Hvac-v0", 
 				"-a", "examples/configs/hvac_custom.json", 
-				"-n", "examples/configs/mlp2_normalized_network.json", 
+				"-n", "examples/configs/hvac_test_network.json", 
 				"-e", "500", 
 				"-D",
-				"-m", "200"],
+				"-m", "500"],
 			"console": "integratedTerminal"
 		},
 		{

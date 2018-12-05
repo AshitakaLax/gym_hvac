@@ -88,20 +88,19 @@ class HvacEnv(gym.Env):
 		self.hvacBuilding = hvacBuilding
 		# step environment variables
 		# we are currently saying there are 4 options Cooling on/off
-		# 0 Cooling off
+		# 0 HVAC off
 		# 1 Cooling On
-		# 2 Heating Off
-		# 3 Heating On
+		# 2 Heating On
 		# if you want more than one action then you need to provide a spaces.Tuple
-		self.action_space = spaces.Discrete(4)
+		self.action_space = spaces.Discrete(2)
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
-		self.env_step_interval = 60
+		self.env_step_interval = 10
 		self.step_max = 3600
 		# the observation currnently the average cost per second, current
-		low = np.array([0.0, 10.0, 0.0, 0.0, -10.0])
-		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 30.0, 1.0, 1.0, 10.0])
+		low = np.array([0.0, 10.0, 0.0, 0.0, -5.0])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 30.0, 1.0, 1.0, 5.0])
 		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
 
@@ -142,9 +141,8 @@ class HvacEnv(gym.Env):
 		deltaTemp = previousTemp - afterTemp
 		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, float(self.hvacBuilding.building_hvac.HeatingIsOn), float(self.hvacBuilding.building_hvac.CoolingIsOn), deltaTemp)
 
-		#self.status = self.env.step()
 		reward = self._get_reward(previousTemp)
-		#ob = self.env.getState()
+
 		done = False
 		if self.step_count >= self.step_max:
 			self.step_after_done = self.step_after_done + 1
@@ -168,13 +166,11 @@ class HvacEnv(gym.Env):
 	def _take_action(self, action):
 		# convert
 		if action == 0:
-			self.hvacBuilding.building_hvac.TurnCoolingOff()
+			self.hvacBuilding.building_hvac.TurnHvacOff()
 		if action == 1:
-			self.hvacBuilding.building_hvac.TurnCoolingOn()
-		if action == 2:
-			self.hvacBuilding.building_hvac.TurnHeatingOff()
-		if action == 3:
 			self.hvacBuilding.building_hvac.TurnHeatingOn()
+		if action == 2:
+			self.hvacBuilding.building_hvac.TurnCoolingOn()
 		
 		# this will run through the simulation for 10 seconds
 		# get the time of day
