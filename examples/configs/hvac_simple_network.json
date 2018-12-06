@@ -2,16 +2,19 @@
     {
         "type": "dense",
         "size": 32,
-        "activation": "softmax"
+		"activation": "softplus",
+		"summary_labels": "Initial_Layer"
     },
     {
         "type": "dense",
         "size": 32,
-        "activation": "relu"
+        "activation": "softplus",
+		"summary_labels": "Middle_Layer"
     },
     {
         "type": "dense",
         "size": 32,
-        "activation": "softmax"
+        "activation": "softmax",
+		"summary_labels": "Last_Layer"
     }
 ]
