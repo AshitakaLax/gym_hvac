@@ -1,7 +1,7 @@
 {
     "type": "vpg_agent",
     "memory": {
-        "type": "latest",
+        "type": "replay",
         "capacity": 5000,
         "include_next_states": false
 	},
@@ -13,7 +13,5 @@
 	"optimizer": {
         "type":"adam",
         "learning_rate":1
-    },    
-    "entropy_regularization": 0.01
-
+	}
 }

@@ -92,7 +92,7 @@ class HvacEnv(gym.Env):
 		# 1 Cooling On
 		# 2 Heating On
 		# if you want more than one action then you need to provide a spaces.Tuple
-		self.action_space = spaces.Discrete(3)
+		self.action_space = spaces.Discrete(2)
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
