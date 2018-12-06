@@ -1,0 +1,12 @@
+[
+    {
+        "type": "dense",
+        "size": 32,
+        "activation": "softmax"
+    },
+    {
+        "type": "dense",
+        "size": 32,
+        "activation": "softmax"
+    }
+]

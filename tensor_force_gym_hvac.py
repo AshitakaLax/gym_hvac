@@ -143,7 +143,12 @@ def main():
     rewardArr = []
     temperatureArr = []
     episodeArr = []
+    plt.scatter(episodeArr, rewardArr, c='b', label='reward')
+    plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
+    plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
+    plt.legend(loc='lower left')
     
+    plt.xlabel('number of episodes', fontsize=18)
     def episode_finished(r, id_):
         if r.episode % report_episodes == 0:
             episodeArr.append(r.episode)
@@ -157,7 +162,7 @@ def main():
             gasCost = r.environment.gym.hvacBuilding.CalculateGasEneregyCost()
             rewardArr.append(r.episode_rewards[-1])
             temperatureArr.append(r.environment.gym.hvacBuilding.current_temperature)
-            totalCostArr.append(electricalCost + gasCost)
+            totalCostArr.append((electricalCost + gasCost)*100)
 
             logger.info("Episode reward: {}".format(r.episode_rewards[-1]))
             logger.info("Average of last 5 rewards: {:0.2f}".
@@ -176,6 +181,10 @@ def main():
             logger.info("Saving agent to {}".format(args.save))
             r.agent.save_model(args.save)
 
+        plt.scatter(episodeArr, rewardArr, c='b', label='reward')
+        plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
+        plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
+        plt.pause(0.05)
         return True
 
     runner.run(
@@ -188,11 +197,6 @@ def main():
         sleep=args.sleep
     )
     runner.close()
-    plt.scatter(episodeArr, rewardArr, label='reward')
-    plt.scatter(episodeArr, totalCostArr, label='cost')
-    plt.scatter(episodeArr, temperatureArr, label='Temp(C)')
-    plt.legend(loc='upper left')
-    plt.xlabel('number of episodes', fontsize=18)
     plt.show()
     logger.info("Learning finished. Total episodes: {ep}".format(ep=runner.agent.episode))
 

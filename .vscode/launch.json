@@ -18,11 +18,11 @@
 			"program": "${workspaceFolder}/tensor_force_gym_hvac.py",
 			"args": [
 				"Hvac-v0", 
-				"-a", "examples/configs/hvac_custom.json", 
-				"-n", "examples/configs/hvac_test_network.json", 
-				"-e", "500", 
+				"-a", "examples/configs/hvac_simple.json", 
+				"-n", "examples/configs/hvac_simple_network.json", 
+				"-e", "1000", 
 				"-D",
-				"-m", "500"],
+				"-m", "200"],
 			"console": "integratedTerminal"
 		},
 		{

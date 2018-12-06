@@ -92,15 +92,15 @@ class HvacEnv(gym.Env):
 		# 1 Cooling On
 		# 2 Heating On
 		# if you want more than one action then you need to provide a spaces.Tuple
-		self.action_space = spaces.Discrete(2)
+		self.action_space = spaces.Discrete(3)
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
-		self.env_step_interval = 10
+		self.env_step_interval = 30
 		self.step_max = 3600
 		# the observation currnently the average cost per second, current
-		low = np.array([0.0, 10.0, 0.0, 0.0, -5.0])
-		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 30.0, 1.0, 1.0, 5.0])
+		low = np.array([0.0, 10.0, -10.0, -5.0])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 30.0, 50.0, 5.0])
 		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
 
@@ -139,7 +139,7 @@ class HvacEnv(gym.Env):
 		self._take_action(action)
 		afterTemp = self.hvacBuilding.current_temperature 
 		deltaTemp = previousTemp - afterTemp
-		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, float(self.hvacBuilding.building_hvac.HeatingIsOn), float(self.hvacBuilding.building_hvac.CoolingIsOn), deltaTemp)
+		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, self.OutsideTemperature, deltaTemp)
 
 		reward = self._get_reward(previousTemp)
 
@@ -157,7 +157,8 @@ class HvacEnv(gym.Env):
 		self.step_count = 0
 		self.step_max = 3600
 		self.step_after_done = 0
-		self.state = (0.0, self.hvacBuilding.current_temperature, 0.0, 0.0, 0.0)
+		self.OutsideTemperature = self.__loganOutsideTemperatures[0]
+		self.state = (0.0, self.hvacBuilding.current_temperature, self.OutsideTemperature, 0.0)
 		return np.array(self.state)
 
 	def render(self, mode='human', close=False):
@@ -178,6 +179,7 @@ class HvacEnv(gym.Env):
 		if self.hvacBuilding.building_hvac.TotalTimeInSeconds != 0:
 			hourOfDay = int(self.hvacBuilding.building_hvac.TotalTimeInSeconds / 3600) 
 		currentOutsideTemperature = self.__loganOutsideTemperatures[hourOfDay]
+		self.OutsideTemperature = currentOutsideTemperature
 		for	i in range(self.env_step_interval):
 			self.hvacBuilding.step(currentOutsideTemperature)
 
