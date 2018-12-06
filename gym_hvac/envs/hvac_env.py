@@ -29,7 +29,7 @@ class HvacEnv(gym.Env):
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
 		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00, 0.00]
-		self.__loganOutsideTemperatures =[
+		self.__loganOutsideTemperaturesC =[
 -7
 ,-8
 ,-8
@@ -56,7 +56,7 @@ class HvacEnv(gym.Env):
 ,-4
 ,-4
 ]
-		self.__loganOutsideTemperaturesC =[
+		self.__loganOutsideTemperatures =[
 37
 ,38
 ,38
@@ -92,7 +92,7 @@ class HvacEnv(gym.Env):
 		# 1 Cooling On
 		# 2 Heating On
 		# if you want more than one action then you need to provide a spaces.Tuple
-		self.action_space = spaces.Discrete(2)
+		self.action_space = spaces.Discrete(3)
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
