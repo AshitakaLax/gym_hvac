@@ -1,0 +1,19 @@
+{
+    "type": "ppo_agent",
+
+    "update_mode": {
+        "unit": "episodes",
+        "batch_size": 32,
+        "frequency": 5
+    },
+    "memory": {
+        "type": "replay",
+        "include_next_states": false,
+        "capacity": 5000
+    },
+
+    "step_optimizer": {
+        "type": "adam",
+        "learning_rate": 1
+    }
+}

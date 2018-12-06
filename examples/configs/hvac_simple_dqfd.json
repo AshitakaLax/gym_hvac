@@ -1,0 +1,25 @@
+
+{
+	// This approach isn't working
+    "type": "dqfd_agent",
+    "memory": {
+        "type": "replay",
+        "capacity": 10000,
+        "include_next_states": true
+	},
+    "update_mode": {
+        "unit": "timesteps",
+        "batch_size": 128,
+        "frequency": 5
+	},
+    "optimizer": {
+		"type": "adam",
+		"learning_rate": 1
+	  },
+	  "actions_exploration": {
+        "type": "epsilon_decay",
+        "initial_epsilon": 0.5,
+        "final_epsilon": 0.0,
+        "timesteps": 1000
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "dqn_agent",
+    // This approach doesn't work to well
+    "update_mode": {
+        "unit": "timesteps",
+        "batch_size": 64,
+        "frequency": 4
+    },
+    "memory": {
+        "type": "replay",
+        "capacity": 100000,
+        "include_next_states": true
+    },
+
+    "optimizer": {
+		"type": "adam",
+		"learning_rate": 1
+	},
+	
+    "actions_exploration": {
+        "type": "epsilon_anneal",
+        "initial_epsilon": 0.5,
+        "final_epsilon": 0.0,
+        "timesteps": 10000
+    }
+}
