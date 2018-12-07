@@ -143,15 +143,18 @@ def main():
     rewardArr = []
     temperatureArr = []
     episodeArr = []
+    stepCountArr = []
     plt.scatter(episodeArr, rewardArr, c='b', label='reward')
     plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
     plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
+    plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
     plt.legend(loc='lower left')
     
     plt.xlabel('number of episodes', fontsize=18)
     def episode_finished(r, id_):
         if r.episode % report_episodes == 0:
             episodeArr.append(r.episode)
+            stepCountArr.append(r.episode_timestep)
             steps_per_second = r.timestep / (time.time() - r.start_time)
             logger.info("*****************************************************************")
             logger.info("Finished episode {:d} after {:d} timesteps. Steps Per Second {:0.2f}".format(
@@ -184,6 +187,7 @@ def main():
         plt.scatter(episodeArr, rewardArr, c='b', label='reward')
         plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
         plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
+        plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
         plt.pause(0.05)
         return True
 

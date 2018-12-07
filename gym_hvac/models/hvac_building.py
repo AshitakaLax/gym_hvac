@@ -90,6 +90,8 @@ class HvacBuilding():
 
 	def DetermineReward(self, previousTemp: float):
 		
+		# todo add a check whether the outside temperature is above or below.
+		# and set reward if they 
 		# if the furance is turned is going in the right direction
 		if self.current_temperature < 20:
 			# check that we need to be increasing the temperature by having the furnace on
