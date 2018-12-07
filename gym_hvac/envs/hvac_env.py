@@ -25,11 +25,11 @@ class HvacEnv(gym.Env):
 		tracker = HvacBuildingTracker()
 		conditioned_floor_area = 100
 		hvacBuilding = HvacBuilding(hvac, heat_mass_capacity=16500 * conditioned_floor_area, 
-		heat_transmission=200, initial_building_temperature=24, 
+		heat_transmission=200, initial_building_temperature=20, 
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
 		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00, 0.00]
-		self.__loganOutsideTemperaturesC =[
+		self.__loganOutsideTemperatures =[
 -7
 ,-8
 ,-8
@@ -56,7 +56,7 @@ class HvacEnv(gym.Env):
 ,-4
 ,-4
 ]
-		self.__loganOutsideTemperatures =[
+		self.__loganOutsideTemperaturesC =[
 37
 ,38
 ,38
@@ -98,9 +98,11 @@ class HvacEnv(gym.Env):
 		self.step_after_done = 0
 		self.env_step_interval = 30
 		self.step_max = 3600
-		# the observation currnently the average cost per second, current
-		low = np.array([0.0, 10.0, -10.0, -5.0])
-		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), 30.0, 50.0, 5.0])
+		self.building_min = 15.0
+		self.building_max = 25.0
+		# the observation currnently the average cost per second, current building temp, current outside temp, and temperature delta
+		low = np.array([0.0, self.building_min, -10.0, -5.0])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), self.building_max, 50.0, 5.0])
 		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
 
@@ -137,6 +139,8 @@ class HvacEnv(gym.Env):
 		# get the current temperature to calculate the delta
 		previousTemp = self.hvacBuilding.current_temperature 
 		self._take_action(action)
+		
+
 		afterTemp = self.hvacBuilding.current_temperature 
 		deltaTemp = previousTemp - afterTemp
 		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, self.OutsideTemperature, deltaTemp)
@@ -144,11 +148,20 @@ class HvacEnv(gym.Env):
 		reward = self._get_reward(previousTemp)
 
 		done = False
+		# if 1 when it is hotter outside than inside, then we terminate
+		if action == 1 and self.OutsideTemperature > previousTemp:
+			done = True
+
+		# if 2 when it is cooler outside than inside, then we terminate
+		if action == 2 and self.OutsideTemperature < previousTemp:
+			done = True
+
+		# if 2 when it is cooler outside then we terminate
 		if self.step_count >= self.step_max:
 			self.step_after_done = self.step_after_done + 1
 			done = True
 		# if the temperature goes way to far like 10 C or 30 C
-		if afterTemp < 10.0 or afterTemp > 30:
+		if afterTemp < self.building_min or afterTemp > self.building_max:
 			done = True
 		return np.array(self.state), reward, done, {self.hvacBuilding.current_temperature, self.hvacBuilding.building_hvac.CoolingIsOn }
 
