@@ -32,7 +32,21 @@
 			"program": "${workspaceFolder}/tensor_force_gym_hvac.py",
 			"args": [
 				"Hvac-v0", 
-				"-a", "examples/configs/hvac_simple.json", //currently trpo is promising since it didn't get stuck
+				"-a", "examples/configs/hvac_simple.json", 
+				"-n", "examples/configs/hvac_simple_network.json", 
+				"-e", "10000", 
+				"-D",
+				"-m", "2880"],
+			"console": "integratedTerminal"
+		},
+		{
+			"name": "Python: base Day",
+			"type": "python",
+			"request": "launch",
+			"program": "${workspaceFolder}/tensor_force_gym_hvac.py",
+			"args": [
+				"Hvac-v0", 
+				"-a", "examples/configs/hvac_simple.json", 
 				"-n", "examples/configs/hvac_simple_network.json", 
 				"-e", "100", 
 				"-D",

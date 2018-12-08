@@ -203,7 +203,23 @@ def main():
     runner.close()
     plt.show()
     logger.info("Learning finished. Total episodes: {ep}".format(ep=runner.agent.episode))
-
+	
+    indoorTempArr = []
+    outdoorTempArr = []
+    rewardTempArr = []
+    costArr = []
+    averageWattsPerSecArr = []
+    timeOfDayInSecondsArr = []
+    desiredTemperature = 20
+    temperatureDelta = 2
+    
+	# setup the gym environment for one run
+    env = environment.gym
+    # siulate 30 second intervals
+    
+    for	i in range(2880):
+    	timeOfDayInSecondsArr.append(i*30)
+		
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,21 @@
+add outside temp to graph
+add y axis to graph
+DONE- add a hot and cold day
+
+graph that shows how the learning approaches the baseline for Temp, cost, and maybe reward.
+
+Learn what memory, and update_mode, entropy_regularization
+
+Vanilla Policy Gradients (VPG/ REINFORCE) - vpg_agent- paper
+http://www-anw.cs.umass.edu/~barto/courses/cs687/williams92simple.pdf
+
+After the model is learned, we would want to run a single day where we compare the difference between
+the baseline and the learned model.
+
+Problem statement for the intended purpose of this learning system.
+
+List out the sources and references
+
+Define methods and a brief description associated with the methods of choice.
+
+

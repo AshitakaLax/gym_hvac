@@ -29,7 +29,7 @@ class HvacEnv(gym.Env):
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
 		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00, 0.00]
-		self.__loganOutsideTemperatures =[
+		self.__loganOutsideTemperaturesCol =[
 -7
 ,-8
 ,-8
@@ -56,6 +56,33 @@ class HvacEnv(gym.Env):
 ,-4
 ,-4
 ]
+
+		self.__loganOutsideTemperatures =[
+-0.56,
+1.31,
+3.17,
+5.04,
+6.90,
+8.77,
+10.63,
+12.50,
+14.37,
+16.23,
+18.10,
+19.96,
+21.83,
+23.69,
+25.56,
+23.21,
+20.86,
+18.52,
+16.17,
+13.83,
+11.48,
+9.14,
+6.79,
+4.44,
+		]
 		self.__loganOutsideTemperaturesC =[
 37
 ,38
@@ -84,7 +111,7 @@ class HvacEnv(gym.Env):
 ,34
 ]
 
-		self.OutsideTemperature = outsideTemperature
+		self.OutsideTemperature = self.__loganOutsideTemperatures[0]
 		self.hvacBuilding = hvacBuilding
 		# step environment variables
 		# we are currently saying there are 4 options Cooling on/off
@@ -100,6 +127,7 @@ class HvacEnv(gym.Env):
 		self.step_max = 3600
 		self.building_min = 15.0
 		self.building_max = 25.0
+		
 		# the observation currnently the average cost per second, current building temp, current outside temp, and temperature delta
 		low = np.array([0.0, self.building_min, -10.0, -5.0])
 		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), self.building_max, 50.0, 5.0])
