@@ -28,7 +28,9 @@ import logging
 import os
 import time
 import sys
+import datetime
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 import numpy as np
 
 from tensorforce import TensorForceError
@@ -73,6 +75,9 @@ def main():
 
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
+
+    # run the baseline version of the hvace for comparison
+    baseIndoorTempArr, basCostArr, baseRewardTempArr = baselineRun()
 
     if args.import_modules is not None:
         for module in args.import_modules.split(','):
@@ -220,13 +225,84 @@ def main():
         timeOfDayInSecondsArr.append(i*30)
         action = agent.act(state)
         state, reward, terminal, _ = env.step(action)
+        rewardTempArr.append(reward)
         indoorTempArr.append(state[1])
         outdoorTempArr.append(state[2])
         averageWattsPerSecArr.append(state[0])
         costArr.append(env.hvacBuilding.CalculateGasEneregyCost() + env.hvacBuilding.CalculateElectricEneregyCost())
         agent.observe(reward=reward, terminal=terminal)
+
+	
+    plt.style.use('seaborn')
+	
+    def mjrFormatter(x, pos):
+        return str(datetime.timedelta(seconds=x))
+
+    def addAxisLabels(plot: plt, yLabel:str, title:str):
+        fig, ax = plot.subplots()
+        ax.xaxis.set_major_formatter(ticker.FuncFormatter(mjrFormatter))
+        ax.axhline(20, color='Green', lw=2)
+        plot.xlabel('Time of day', fontsize=18)
+        plot.ylabel(yLabel, fontsize=18)
+        plot.title(title, fontsize=20)
+        return plot, ax
+    
+    tempPlot, axis = addAxisLabels(plt, 'Temperature (C°)', '24 Hour Standard HVAC temperature baseline')
+    tempPlot.plot(timeOfDayInSecondsArr, indoorTempArr, 'C1', label='RL Indoor Temp')
+    tempPlot.plot(timeOfDayInSecondsArr, baseIndoorTempArr, 'C1', label='Base Indoor Temp')
+    tempPlot.plot(timeOfDayInSecondsArr, outdoorTempArr, 'C2', label='Outdoor Temp')
+    axis.axhline(25, color='Red', lw=2)
+    axis.axhline(15, color='Red', lw=2)
+
+    tempPlot.legend(loc='lower right')
+    
+    tempPlot.show()
+    costPlot, axis = addAxisLabels(plt, 'Cost (US$)', '24 Hour Standard HVAC temperature baseline')
+    costPlot.plot(timeOfDayInSecondsArr, costArr, 'C3', label='Total Cost')
+    costPlot.legend(loc='lower right')
+    costPlot.show()
     runner.close()
 
+def baselineRun():
+    env = gym.make('Hvac-v0')
+    done = False
+    observation = env.reset()
+    action = 0
+    indoorTempArr = []
+    outdoorTempArr = []
+    rewardTempArr = []
+    costArr = []
+    averageWattsPerSecArr = []
+    timeOfDayInSecondsArr = []
+    desiredTemperature = 20
+    temperatureDelta = 2
+    
+    # siulate 30 second intervals 
+    for	i in range(2880):
+        timeOfDayInSecondsArr.append(i*30)
+        if not env.hvacBuilding.building_hvac.HeatingIsShuttingDown and env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.current_temperature > (desiredTemperature):
+            print("Turning the Heater Off")
+            action = 0
+    	
+        if env.hvacBuilding.building_hvac.HeatingIsOn == False and env.hvacBuilding.current_temperature < (desiredTemperature - temperatureDelta):
+            print("Turning the Heater On")
+            action = 1
+    	
+        if not env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.current_temperature > (desiredTemperature + temperatureDelta):
+            print("Turning the Cooling On")
+            action = 2
+    	
+        if not env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.building_hvac.CoolingIsOn and env.hvacBuilding.current_temperature < desiredTemperature:
+            print("Turning the cooling off")
+            action = 0
+    	
+        state, reward, done, info = env.step(action)
+        rewardTempArr.append(reward)
+        indoorTempArr.append(state[1])
+        outdoorTempArr.append(state[2])
+        averageWattsPerSecArr.append(state[0])
+        costArr.append(env.hvacBuilding.CalculateGasEneregyCost() + env.hvacBuilding.CalculateElectricEneregyCost())
+    return indoorTempArr, costArr, rewardTempArr
 
 if __name__ == '__main__':
     main()
