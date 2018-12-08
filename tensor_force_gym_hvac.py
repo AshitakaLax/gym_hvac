@@ -200,7 +200,6 @@ def main():
         testing=args.test,
         sleep=args.sleep
     )
-    runner.close()
     plt.show()
     logger.info("Learning finished. Total episodes: {ep}".format(ep=runner.agent.episode))
 	
@@ -216,10 +215,18 @@ def main():
 	# setup the gym environment for one run
     env = environment.gym
     # siulate 30 second intervals
-    
+    state = env.reset()
     for	i in range(2880):
-    	timeOfDayInSecondsArr.append(i*30)
-		
+        timeOfDayInSecondsArr.append(i*30)
+        action = agent.act(state)
+        state, reward, terminal, _ = env.step(action)
+        indoorTempArr.append(state[1])
+        outdoorTempArr.append(state[2])
+        averageWattsPerSecArr.append(state[0])
+        costArr.append(env.hvacBuilding.CalculateGasEneregyCost() + env.hvacBuilding.CalculateElectricEneregyCost())
+        agent.observe(reward=reward, terminal=terminal)
+    runner.close()
+
 
 if __name__ == '__main__':
     main()
