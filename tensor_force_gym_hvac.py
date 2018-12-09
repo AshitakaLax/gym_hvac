@@ -150,8 +150,8 @@ def main():
     episodeArr = []
     stepCountArr = []
     plt.scatter(episodeArr, rewardArr, c='b', label='reward')
-    plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
-    plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
+#    plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
+#    plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
     plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
     plt.legend(loc='lower left')
     
@@ -190,8 +190,8 @@ def main():
             r.agent.save_model(args.save)
 
         plt.scatter(episodeArr, rewardArr, c='b', label='reward')
-        plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
-        plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
+#        plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
+#        plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
         plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
         plt.pause(0.05)
         return True
@@ -210,6 +210,7 @@ def main():
 	
     indoorTempArr = []
     outdoorTempArr = []
+    rewardSum = 0
     rewardTempArr = []
     costArr = []
     averageWattsPerSecArr = []
@@ -225,7 +226,8 @@ def main():
         timeOfDayInSecondsArr.append(i*30)
         action = agent.act(state)
         state, reward, terminal, _ = env.step(action)
-        rewardTempArr.append(reward)
+        rewardSum = rewardSum + reward
+        rewardTempArr.append(rewardSum)
         indoorTempArr.append(state[1])
         outdoorTempArr.append(state[2])
         averageWattsPerSecArr.append(state[0])
@@ -246,28 +248,26 @@ def main():
         plot.title(title, fontsize=20)
         return plot, ax
     
-    tempPlot, axis = addAxisLabels(plt, 'Temperature (C°)', '24 Hour HVAC House temperature baseline vs RL')
-    tempPlot.plot(timeOfDayInSecondsArr, indoorTempArr, 'C1', label='RL Indoor Temp')
-    tempPlot.plot(timeOfDayInSecondsArr, baseIndoorTempArr, 'b--', label='Base Indoor Temp')
+    tempPlot, axis = addAxisLabels(plt, 'Temperature (C°)', '24 Hour HVAC House Temperature')
+    axis.axhline(20, color='Yellow', lw=2, linestyle=':')
     tempPlot.plot(timeOfDayInSecondsArr, outdoorTempArr, 'C2', label='Outdoor Temp')
-    axis.axhline(25, color='Red', lw=2)
-    axis.axhline(15, color='Red', lw=2)
-    axis.axhline(20, color='Green', lw=2)
+    tempPlot.plot(timeOfDayInSecondsArr, baseIndoorTempArr, 'b--', label='Standard Thermostat Indoor Temp')
+    tempPlot.plot(timeOfDayInSecondsArr, indoorTempArr, 'C1', label='RL Indoor Temp')
 
     tempPlot.legend(loc='lower right')
     
 	# save file
     tempPlot.savefig('indoorAndOutdoor_RL_Baseline_Comparison.svg')
 	
-    costPlot, axis = addAxisLabels(plt, 'Cost (US$)', '24 Hour HVAC Cost baseline vs RL')
+    costPlot, axis = addAxisLabels(plt, 'Cost (US$)', '24 Hour HVAC Cost')
     costPlot.plot(timeOfDayInSecondsArr, costArr, 'C3', label='RL Total Cost')
-    costPlot.plot(timeOfDayInSecondsArr, baseCostArr, 'b--', label='Baseline Total Cost')
+    costPlot.plot(timeOfDayInSecondsArr, baseCostArr, 'b--', label='Standard Thermostat Total Cost')
     costPlot.legend(loc='lower right')
     costPlot.savefig('Total_Cost_RL_Baseline_Comparison.svg')
 	
-    rewardPlot, axis = addAxisLabels(plt, 'Reward (more is better)', '24 Hour HVAC Reward baseline vs RL')
+    rewardPlot, axis = addAxisLabels(plt, 'Reward (more is better)', '24 Hour HVAC Reward')
     rewardPlot.plot(timeOfDayInSecondsArr, rewardTempArr, 'C3', label='RL Reward')
-    rewardPlot.plot(timeOfDayInSecondsArr, baseRewardTempArr, 'b--', label='Baseline Reward')
+    rewardPlot.plot(timeOfDayInSecondsArr, baseRewardTempArr, 'b--', label='Standard Thermostat Reward')
     rewardPlot.legend(loc='lower right')
     rewardPlot.savefig('Reward_RL_Baseline_Comparison.svg')
     runner.close()
@@ -280,6 +280,7 @@ def baselineRun():
     indoorTempArr = []
     outdoorTempArr = []
     rewardTempArr = []
+    rewardSum = 0
     costArr = []
     averageWattsPerSecArr = []
     timeOfDayInSecondsArr = []
@@ -290,23 +291,24 @@ def baselineRun():
     for	i in range(2880):
         timeOfDayInSecondsArr.append(i*30)
         if not env.hvacBuilding.building_hvac.HeatingIsShuttingDown and env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.current_temperature > (desiredTemperature):
-            print("Turning the Heater Off")
+            #print("Turning the Heater Off")
             action = 0
     	
         if env.hvacBuilding.building_hvac.HeatingIsOn == False and env.hvacBuilding.current_temperature < (desiredTemperature - temperatureDelta):
-            print("Turning the Heater On")
+            #print("Turning the Heater On")
             action = 1
     	
         if not env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.current_temperature > (desiredTemperature + temperatureDelta):
-            print("Turning the Cooling On")
+            #print("Turning the Cooling On")
             action = 2
     	
         if not env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.building_hvac.CoolingIsOn and env.hvacBuilding.current_temperature < desiredTemperature:
-            print("Turning the cooling off")
+            #print("Turning the cooling off")
             action = 0
     	
         state, reward, done, info = env.step(action)
-        rewardTempArr.append(reward)
+        rewardSum = rewardSum + reward
+        rewardTempArr.append(rewardSum)
         indoorTempArr.append(state[1])
         outdoorTempArr.append(state[2])
         averageWattsPerSecArr.append(state[0])
