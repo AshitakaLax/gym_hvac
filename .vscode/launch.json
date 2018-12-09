@@ -12,7 +12,7 @@
 			"console": "integratedTerminal"
 		},
 		{
-			"name": "Python: Openai Gym (Integrated Terminal)",
+			"name": "Python: Openai Gym Develop",
 			"type": "python",
 			"request": "launch",
 			"program": "${workspaceFolder}/tensor_force_gym_hvac.py",
@@ -20,9 +20,9 @@
 				"Hvac-v0", 
 				"-a", "examples/configs/hvac_simple.json", 
 				"-n", "examples/configs/hvac_simple_network.json", 
-				"-e", "50", 
+				"-e", "300", 
 				"-D",
-				"-m", "2880"],
+				"-m", "720"],
 			"console": "integratedTerminal"
 		},
 		{

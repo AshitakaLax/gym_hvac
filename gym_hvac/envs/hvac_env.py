@@ -57,7 +57,7 @@ class HvacEnv(gym.Env):
 ,-4
 ]
 
-		self.__loganOutsideTemperatures =[
+		self.__loganOutsideTemperaturesC =[
 -0.56,
 1.31,
 3.17,
@@ -83,7 +83,7 @@ class HvacEnv(gym.Env):
 6.79,
 4.44,
 		]
-		self.__loganOutsideTemperaturesC =[
+		self.__loganOutsideTemperatures =[
 37
 ,38
 ,38

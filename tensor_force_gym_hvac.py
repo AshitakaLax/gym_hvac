@@ -77,7 +77,7 @@ def main():
     logger.setLevel(logging.INFO)
 
     # run the baseline version of the hvace for comparison
-    baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun()
+    baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun(args.max_episode_timesteps)
 
     if args.import_modules is not None:
         for module in args.import_modules.split(','):
@@ -149,11 +149,13 @@ def main():
     temperatureArr = []
     episodeArr = []
     stepCountArr = []
-    plt.scatter(episodeArr, rewardArr, c='b', label='reward')
+    #fig, ax = plt.subplots()
+    #plt.scatter(episodeArr, rewardArr, c='b', label='reward')
 #    plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
 #    plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
-    plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
-    plt.legend(loc='lower left')
+    #plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
+    #plt.legend(loc='lower left')    
+    #ax.axhline((baseRewardTempArr[-1] - baseRewardTempArr[-2]), color='Yellow', lw=2, linestyle=':')
     
     plt.xlabel('number of episodes', fontsize=18)
     def episode_finished(r, id_):
@@ -189,11 +191,11 @@ def main():
             logger.info("Saving agent to {}".format(args.save))
             r.agent.save_model(args.save)
 
-        plt.scatter(episodeArr, rewardArr, c='b', label='reward')
+        #plt.scatter(episodeArr, rewardArr, c='b', label='reward')
 #        plt.scatter(episodeArr, totalCostArr, c='g', label='cost (cents)')
 #        plt.scatter(episodeArr, temperatureArr, c='r', label='Temp(C)')
-        plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
-        plt.pause(0.05)
+        #plt.scatter(episodeArr, stepCountArr, c='y', label='number of steps')
+        #plt.pause(0.05)
         return True
 
     runner.run(
@@ -205,7 +207,7 @@ def main():
         testing=args.test,
         sleep=args.sleep
     )
-    plt.show()
+    #plt.show()
     logger.info("Learning finished. Total episodes: {ep}".format(ep=runner.agent.episode))
 	
     indoorTempArr = []
@@ -222,7 +224,7 @@ def main():
     env = environment.gym
     # siulate 30 second intervals
     state = env.reset()
-    for	i in range(2880):
+    for	i in range(args.max_episode_timesteps):
         timeOfDayInSecondsArr.append(i*30)
         action = agent.act(state)
         state, reward, terminal, _ = env.step(action)
@@ -271,8 +273,9 @@ def main():
     rewardPlot.legend(loc='lower right')
     rewardPlot.savefig('Reward_RL_Baseline_Comparison.svg')
     runner.close()
+    print(datetime.datetime.now())
 
-def baselineRun():
+def baselineRun(numberOfSteps):
     env = gym.make('Hvac-v0')
     done = False
     observation = env.reset()
@@ -288,7 +291,7 @@ def baselineRun():
     temperatureDelta = 2
     
     # siulate 30 second intervals 
-    for	i in range(2880):
+    for	i in range(numberOfSteps):
         timeOfDayInSecondsArr.append(i*30)
         if not env.hvacBuilding.building_hvac.HeatingIsShuttingDown and env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.current_temperature > (desiredTemperature):
             #print("Turning the Heater Off")
