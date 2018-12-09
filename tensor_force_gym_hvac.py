@@ -77,7 +77,7 @@ def main():
     logger.setLevel(logging.INFO)
 
     # run the baseline version of the hvace for comparison
-    baseIndoorTempArr, basCostArr, baseRewardTempArr = baselineRun()
+    baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun()
 
     if args.import_modules is not None:
         for module in args.import_modules.split(','):
@@ -241,26 +241,35 @@ def main():
     def addAxisLabels(plot: plt, yLabel:str, title:str):
         fig, ax = plot.subplots()
         ax.xaxis.set_major_formatter(ticker.FuncFormatter(mjrFormatter))
-        ax.axhline(20, color='Green', lw=2)
         plot.xlabel('Time of day', fontsize=18)
         plot.ylabel(yLabel, fontsize=18)
         plot.title(title, fontsize=20)
         return plot, ax
     
-    tempPlot, axis = addAxisLabels(plt, 'Temperature (C°)', '24 Hour Standard HVAC temperature baseline')
+    tempPlot, axis = addAxisLabels(plt, 'Temperature (C°)', '24 Hour HVAC House temperature baseline vs RL')
     tempPlot.plot(timeOfDayInSecondsArr, indoorTempArr, 'C1', label='RL Indoor Temp')
-    tempPlot.plot(timeOfDayInSecondsArr, baseIndoorTempArr, 'C1', label='Base Indoor Temp')
+    tempPlot.plot(timeOfDayInSecondsArr, baseIndoorTempArr, 'b--', label='Base Indoor Temp')
     tempPlot.plot(timeOfDayInSecondsArr, outdoorTempArr, 'C2', label='Outdoor Temp')
     axis.axhline(25, color='Red', lw=2)
     axis.axhline(15, color='Red', lw=2)
+    axis.axhline(20, color='Green', lw=2)
 
     tempPlot.legend(loc='lower right')
     
-    tempPlot.show()
-    costPlot, axis = addAxisLabels(plt, 'Cost (US$)', '24 Hour Standard HVAC temperature baseline')
-    costPlot.plot(timeOfDayInSecondsArr, costArr, 'C3', label='Total Cost')
+	# save file
+    tempPlot.savefig('indoorAndOutdoor_RL_Baseline_Comparison.svg')
+	
+    costPlot, axis = addAxisLabels(plt, 'Cost (US$)', '24 Hour HVAC Cost baseline vs RL')
+    costPlot.plot(timeOfDayInSecondsArr, costArr, 'C3', label='RL Total Cost')
+    costPlot.plot(timeOfDayInSecondsArr, baseCostArr, 'b--', label='Baseline Total Cost')
     costPlot.legend(loc='lower right')
-    costPlot.show()
+    costPlot.savefig('Total_Cost_RL_Baseline_Comparison.svg')
+	
+    rewardPlot, axis = addAxisLabels(plt, 'Reward (more is better)', '24 Hour HVAC Reward baseline vs RL')
+    rewardPlot.plot(timeOfDayInSecondsArr, rewardTempArr, 'C3', label='RL Reward')
+    rewardPlot.plot(timeOfDayInSecondsArr, baseRewardTempArr, 'b--', label='Baseline Reward')
+    rewardPlot.legend(loc='lower right')
+    rewardPlot.savefig('Reward_RL_Baseline_Comparison.svg')
     runner.close()
 
 def baselineRun():
