@@ -29,7 +29,7 @@ class HvacEnv(gym.Env):
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
 		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00, 0.00]
-		self.__loganOutsideTemperaturesCol =[
+		self.__loganOutsideTemperaturesC =[
 -7
 ,-8
 ,-8
@@ -57,7 +57,7 @@ class HvacEnv(gym.Env):
 ,-4
 ]
 
-		self.__loganOutsideTemperaturesC =[
+		self.__loganOutsideTemperatures =[
 -0.56,
 1.31,
 3.17,
@@ -83,7 +83,7 @@ class HvacEnv(gym.Env):
 6.79,
 4.44,
 		]
-		self.__loganOutsideTemperatures =[
+		self.__loganOutsideTemperaturesC =[
 37
 ,38
 ,38
@@ -125,8 +125,8 @@ class HvacEnv(gym.Env):
 		self.step_after_done = 0
 		self.env_step_interval = 30
 		self.step_max = 3600
-		self.building_min = 15.0
-		self.building_max = 25.0
+		self.building_min = 17.0
+		self.building_max = 23.0
 		
 		# the observation currnently the average cost per second, current building temp, current outside temp, and temperature delta
 		low = np.array([0.0, self.building_min, -10.0, -5.0])
@@ -171,6 +171,7 @@ class HvacEnv(gym.Env):
 
 		afterTemp = self.hvacBuilding.current_temperature 
 		deltaTemp = previousTemp - afterTemp
+		# todo consider adding the time of day to the state
 		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, self.OutsideTemperature, deltaTemp)
 
 		reward = self._get_reward(previousTemp)

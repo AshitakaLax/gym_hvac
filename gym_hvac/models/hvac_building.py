@@ -89,6 +89,9 @@ class HvacBuilding():
 		return (outsideTemperature, (self.current_temperature + 0.0), self.building_hvac.GetAverageWattsPerSecond())
 
 	def DetermineReward(self, previousTemp: float):
+		return self.DetermineRewardCost(previousTemp)
+		
+	def DetermineRewardRunning(self, previousTemp: float):
 		
 		# todo add a check whether the outside temperature is above or below.
 		# and set reward if they 
@@ -107,6 +110,18 @@ class HvacBuilding():
 			if self.building_hvac.HeatingIsOn and self.building_hvac.HeatingIsShuttingDown:
 				return 1.0
 		
+		return 0.0
+		
+	def DetermineRewardCost(self, previousTemp: float):
+		
+		# todo add a check whether the outside temperature is above or below.
+		# and set reward if they 
+		# if the furance is turned is going in the right direction
+		reward = (self.CalculateElectricEneregyCost() + self.CalculateGasEneregyCost())
+		if self.current_temperature < 22 or self.current_temperature > 18:
+			# check that we need to be increasing the temperature by having the furnace on
+			return 1-reward
+
 		return 0.0
 
 	def DetermineRewardCurrentTemp(self):
@@ -179,7 +194,5 @@ class HvacBuilding():
 			dollarsPerKiloWattHour {float} -- calculates the cost per KWH(default: {0.1149})
 		"""
 		electricKWHs = self.building_hvac.GetElectricKilowattHours()
-		
-
 		# get the cost per kwh
 		return electricKWHs * dollarsPerKiloWattHour
