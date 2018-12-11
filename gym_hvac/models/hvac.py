@@ -286,8 +286,6 @@ class HVAC():
 		"""
 		totalGasEnergyUsed = self.GetTotalGasEnergyUsed()
 
-
-
 	def GetGasDTH(self):
 		"""Gets the number of DTH the HVAC has Used 
 		"""

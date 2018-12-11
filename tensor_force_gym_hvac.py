@@ -53,6 +53,7 @@ def main():
     parser.add_argument('-a', '--agent', help="Agent configuration file")
     parser.add_argument('-n', '--network', default=None, help="Network specification file")
     parser.add_argument('-e', '--episodes', type=int, default=None, help="Number of episodes")
+    parser.add_argument('-f', '--full-day', action='store_true', default=False, help="Simulate a full Day")
     parser.add_argument('-t', '--timesteps', type=int, default=None, help="Number of timesteps")
     parser.add_argument('-m', '--max-episode-timesteps', type=int, default=None, help="Maximum number of timesteps per episode")
     parser.add_argument('-d', '--deterministic', action='store_true', default=False, help="Choose actions deterministically")
@@ -77,7 +78,10 @@ def main():
     logger.setLevel(logging.INFO)
 
     # run the baseline version of the hvace for comparison
-    baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun(args.max_episode_timesteps)
+    if args.full_day:
+        baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun(2880)
+    else:
+        baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun(args.max_episode_timesteps)
 
     if args.import_modules is not None:
         for module in args.import_modules.split(','):
@@ -221,10 +225,13 @@ def main():
     temperatureDelta = 2
     
 	# setup the gym environment for one run
+    numberOfSteps = args.max_episode_timesteps
+    if args.full_day:
+        numberOfSteps = 2880
     env = environment.gym
     # siulate 30 second intervals
     state = env.reset()
-    for	i in range(args.max_episode_timesteps):
+    for	i in range(numberOfSteps):
         timeOfDayInSecondsArr.append(i*30)
         action = agent.act(state)
         state, reward, terminal, _ = env.step(action)

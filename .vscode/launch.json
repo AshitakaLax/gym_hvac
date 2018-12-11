@@ -20,9 +20,10 @@
 				"Hvac-v0", 
 				"-a", "examples/configs/hvac_simple.json", 
 				"-n", "examples/configs/hvac_simple_network.json", 
-				"-e", "1000", 
+				"-e", "5000", 
 				"-D",
-				"-m", "480"],
+				"-f",
+				"-m", "1440"],
 			"console": "integratedTerminal"
 		},
 		{

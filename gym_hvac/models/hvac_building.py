@@ -114,9 +114,7 @@ class HvacBuilding():
 		
 	def DetermineRewardCost(self, previousTemp: float):
 		
-		# todo add a check whether the outside temperature is above or below.
-		# and set reward if they 
-		# if the furance is turned is going in the right direction
+		# todo determine what the cost is for that moment
 		reward = (self.CalculateElectricEneregyCost() + self.CalculateGasEneregyCost())
 		if self.current_temperature < 22 or self.current_temperature > 18:
 			# check that we need to be increasing the temperature by having the furnace on
@@ -146,8 +144,6 @@ class HvacBuilding():
 
 		#reward = reward + temperatureReward
 		return temperatureReward
-
-
 
 	def reset(self):
 		self.current_temperature = 18
@@ -187,7 +183,7 @@ class HvacBuilding():
 		dthUsed = self.building_hvac.GetGasDTH()
 		return dthUsed * dollarsPerDTH
 
-	def CalculateElectricEneregyCost(self, dollarsPerKiloWattHour = 0.1149, ):
+	def CalculateElectricEneregyCost(self, dollarsPerKiloWattHour = 0.1149):
 		"""Calculates the total cost of energy for the electric energy used
 		
 		Keyword Arguments:

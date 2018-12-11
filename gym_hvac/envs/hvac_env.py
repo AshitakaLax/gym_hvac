@@ -29,7 +29,7 @@ class HvacEnv(gym.Env):
 		conditioned_floor_area=conditioned_floor_area, hvacBuildingTracker = tracker
 )
 		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00, 0.00]
-		self.__loganOutsideTemperaturesC =[
+		self.__loganOutsideTemperatures =[
 -7
 ,-8
 ,-8
@@ -57,7 +57,7 @@ class HvacEnv(gym.Env):
 ,-4
 ]
 
-		self.__loganOutsideTemperatures =[
+		self.__loganOutsideTemperaturesC =[
 -0.56,
 1.31,
 3.17,
@@ -127,10 +127,11 @@ class HvacEnv(gym.Env):
 		self.step_max = 3600
 		self.building_min = 17.0
 		self.building_max = 23.0
+		self.building_target = 20.0
 		
 		# the observation currnently the average cost per second, current building temp, current outside temp, and temperature delta
-		low = np.array([0.0, self.building_min, -10.0, -5.0])
-		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), self.building_max, 50.0, 5.0])
+		low = np.array([0.0, self.building_min, -10.0, -5.0, self.building_target])
+		high = np.array([(self.hvacBuilding.building_hvac.GetMaxCoolingPower() + 0.0), self.building_max, 50.0, 5.0, self.building_target])
 		self.observation_space = spaces.Box(low=low, high=high, dtype=np.float32)
 		self.reset()
 
@@ -172,7 +173,7 @@ class HvacEnv(gym.Env):
 		afterTemp = self.hvacBuilding.current_temperature 
 		deltaTemp = previousTemp - afterTemp
 		# todo consider adding the time of day to the state
-		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, self.OutsideTemperature, deltaTemp)
+		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, self.OutsideTemperature, deltaTemp, self.building_target)
 
 		reward = self._get_reward(previousTemp)
 
@@ -200,7 +201,7 @@ class HvacEnv(gym.Env):
 		self.step_max = 3600
 		self.step_after_done = 0
 		self.OutsideTemperature = self.__loganOutsideTemperatures[0]
-		self.state = (0.0, self.hvacBuilding.current_temperature, self.OutsideTemperature, 0.0)
+		self.state = (0.0, self.hvacBuilding.current_temperature, self.OutsideTemperature, 0.0, self.building_target)
 		return np.array(self.state)
 
 	def render(self, mode='human', close=False):
