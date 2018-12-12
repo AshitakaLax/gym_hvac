@@ -123,8 +123,8 @@ class HvacEnv(gym.Env):
 		self.step_after_done = 0
 		self.env_step_interval = 30
 		self.step_max = 3600
-		self.building_min = 17.0
-		self.building_max = 23.0
+		self.building_min = 16.0
+		self.building_max = 24.0
 		self.building_target = 20.0
 		
 		# the observation currnently the average cost per second, current building temp, current outside temp, and temperature delta

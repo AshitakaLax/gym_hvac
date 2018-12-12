@@ -118,6 +118,8 @@ class HvacBuilding():
 		reward = (self.CalculateElectricEneregyCost() + self.CalculateGasEneregyCost())
 		if self.current_temperature < 22 or self.current_temperature > 18:
 			# check that we need to be increasing the temperature by having the furnace on
+			if reward > 0.75:
+				return 0.25
 			return 1-reward
 
 		return 0.0
