@@ -179,12 +179,7 @@ def main():
             totalCostArr.append((electricalCost + gasCost)*100)
 
             logger.info("Episode reward: {}".format(r.episode_rewards[-1]))
-            logger.info("Average of last 5 rewards: {:0.2f}".
-                        format(sum(r.episode_rewards[-5:]) / min(5, len(r.episode_rewards))))
-            logger.info("Average of last 2 rewards: {:0.2f}".
-                        format(sum(r.episode_rewards[-2:]) / min(2, len(r.episode_rewards))))
-            logger.info("Current Electrical Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateElectricEneregyCost()))
-            logger.info("Current Gas Cost: ${}".format(r.environment.gym.hvacBuilding.CalculateGasEneregyCost()))
+            logger.info("Average of last 5 rewards: {:0.2f}".format(sum(r.episode_rewards[-5:]) / min(5, len(r.episode_rewards))))
             logger.info("Current temperature: {}C".format(r.environment.gym.hvacBuilding.current_temperature))
             logger.info("Number of times Heating turned on: {}".format(r.environment.gym.hvacBuilding.building_hvac.NumberOfTimesHeatingTurnedOn))
             logger.info("Number of times Cooling turned on: {}".format(r.environment.gym.hvacBuilding.building_hvac.NumberOfTimesCoolingTurnedOn))
@@ -211,6 +206,26 @@ def main():
         testing=args.test,
         sleep=args.sleep
     )
+	
+    plt.style.use('seaborn')
+    def mjrFormatter(x, pos):
+        return str(datetime.timedelta(seconds=x))
+
+    def addAxisLabels(plot: plt, yLabel:str, title:str, xlabel:str='Time of day', xAxisIsTime:bool = True):
+        fig, ax = plot.subplots()
+        if xAxisIsTime:
+            ax.xaxis.set_major_formatter(ticker.FuncFormatter(mjrFormatter))
+        plot.xlabel(xlabel, fontsize=18)
+        plot.ylabel(yLabel, fontsize=18)
+        plot.title(title, fontsize=20)
+        return plot, ax
+
+    # Print the graph for the Learning process
+    learningPlot, axis = addAxisLabels(plt, 'Number of Steps per Episode', 'Reinforced Learning Progress', 'Number of Episodes', False)
+    learningPlot.plot(episodeArr, stepCountArr, 'C3', label='Step Count')
+    learningPlot.legend(loc='lower right')
+    learningPlot.savefig('RL_Progress.svg')
+
     #plt.show()
     logger.info("Learning finished. Total episodes: {ep}".format(ep=runner.agent.episode))
 	
@@ -243,19 +258,6 @@ def main():
         costArr.append(env.hvacBuilding.CalculateGasEneregyCost() + env.hvacBuilding.CalculateElectricEneregyCost())
         agent.observe(reward=reward, terminal=terminal)
 
-	
-    plt.style.use('seaborn')
-	
-    def mjrFormatter(x, pos):
-        return str(datetime.timedelta(seconds=x))
-
-    def addAxisLabels(plot: plt, yLabel:str, title:str):
-        fig, ax = plot.subplots()
-        ax.xaxis.set_major_formatter(ticker.FuncFormatter(mjrFormatter))
-        plot.xlabel('Time of day', fontsize=18)
-        plot.ylabel(yLabel, fontsize=18)
-        plot.title(title, fontsize=20)
-        return plot, ax
     
     tempPlot, axis = addAxisLabels(plt, 'Temperature (C°)', '24 Hour HVAC House Temperature')
     axis.axhline(20, color='Yellow', lw=2, linestyle=':')
