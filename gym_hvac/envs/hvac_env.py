@@ -27,7 +27,7 @@ class HvacEnv(gym.Env):
 		heat_transmission=200, initial_building_temperature=20, 
 		conditioned_floor_area=conditioned_floor_area)
 		self.__loganOutsideTemperatures_October = [1.11, 2.22, 1.67, 1.67, 2.22, 1.11, 1.11, 2.78, 4.44, 4.44, 5.56, 6.67, 6.67, 7.22, 6.67, 2.22, 2.22, 1.67, 1.11, 1.11, 0.56, 1.11, 0.00, 0.00, 0.00]
-		self.__loganOutsideTemperaturesCold =[
+		self.__loganOutsideTemperatures =[
 -7
 ,-8
 ,-8
@@ -55,7 +55,7 @@ class HvacEnv(gym.Env):
 ,-4
 ]
 
-		self.__loganOutsideTemperatures =[
+		self.__loganOutsideTemperaturesNormal =[
 -0.56,
 1.31,
 3.17,
@@ -121,11 +121,12 @@ class HvacEnv(gym.Env):
 		self.state = 0.0
 		self.step_count = 0
 		self.step_after_done = 0
-		self.env_step_interval = 30
-		self.step_max = 3600
-		self.building_min = 16.0
-		self.building_max = 24.0
+		self.env_step_interval = 300
+		self.step_max = 288
+		self.building_min = 10.0
+		self.building_max = 30.0
 		self.building_target = 20.0
+		self.hvacBuilding.CalculateMaxEneregyCostForTime(self.env_step_interval)
 		
 		# the observation currnently the average cost per second, current building temp, current outside temp, and temperature delta
 		low = np.array([0.0, self.building_min, -10.0, -5.0, self.building_target])
@@ -165,15 +166,18 @@ class HvacEnv(gym.Env):
 		assert self.action_space.contains(action)
 		# get the current temperature to calculate the delta
 		previousTemp = self.hvacBuilding.current_temperature 
+		previousMoneyTotal = self.hvacBuilding.CalculateGasEneregyCost() + self.hvacBuilding.CalculateElectricEneregyCost()
 		self._take_action(action)
 		
-
 		afterTemp = self.hvacBuilding.current_temperature 
+		afterMoneyTotal = self.hvacBuilding.CalculateGasEneregyCost() + self.hvacBuilding.CalculateElectricEneregyCost()
+		
 		deltaTemp = previousTemp - afterTemp
+		actionCost = afterMoneyTotal - previousMoneyTotal 
 		# todo consider adding the time of day to the state
 		self.state = (self.hvacBuilding.building_hvac.GetAverageWattsPerSecond(), self.hvacBuilding.current_temperature, self.OutsideTemperature, deltaTemp, self.building_target)
 
-		reward = self._get_reward(previousTemp)
+		reward = self._get_reward(previousTemp, actionCost)
 
 		done = False
 		# if 1 when it is hotter outside than inside, then we terminate
@@ -219,14 +223,17 @@ class HvacEnv(gym.Env):
 		hourOfDay = 0
 		if self.hvacBuilding.building_hvac.TotalTimeInSeconds != 0:
 			hourOfDay = int(self.hvacBuilding.building_hvac.TotalTimeInSeconds / 3600) 
+		if(hourOfDay > 24):
+			hourOfDay = 24
 		currentOutsideTemperature = self.__loganOutsideTemperatures[hourOfDay]
 		self.OutsideTemperature = currentOutsideTemperature
+
 		for	i in range(self.env_step_interval):
 			self.hvacBuilding.step(currentOutsideTemperature)
 
 		self.step_count = self.step_count + 1
 	
-	def _get_reward(self, previousTemp:float):
-		reward = self.hvacBuilding.DetermineReward(previousTemp)
+	def _get_reward(self, previousTemp:float, actionCost: float):
+		reward = self.hvacBuilding.DetermineReward(previousTemp, actionCost)
 		
 		return reward

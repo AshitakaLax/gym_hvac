@@ -78,10 +78,7 @@ def main():
     logger.setLevel(logging.INFO)
 
     # run the baseline version of the hvace for comparison
-    if args.full_day:
-        baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun(2880)
-    else:
-        baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun(args.max_episode_timesteps)
+    baseIndoorTempArr, baseCostArr, baseRewardTempArr = baselineRun(args.max_episode_timesteps)
 
     if args.import_modules is not None:
         for module in args.import_modules.split(','):
@@ -247,7 +244,7 @@ def main():
     # siulate 30 second intervals
     state = env.reset()
     for	i in range(numberOfSteps):
-        timeOfDayInSecondsArr.append(i*30)
+        timeOfDayInSecondsArr.append(i*env.env_step_interval)
         action = agent.act(state)
         state, reward, terminal, _ = env.step(action)
         rewardSum = rewardSum + reward
@@ -301,7 +298,7 @@ def baselineRun(numberOfSteps):
     
     # siulate 30 second intervals 
     for	i in range(numberOfSteps):
-        timeOfDayInSecondsArr.append(i*30)
+        timeOfDayInSecondsArr.append(i*env.env_step_interval)
         if not env.hvacBuilding.building_hvac.HeatingIsShuttingDown and env.hvacBuilding.building_hvac.HeatingIsOn and env.hvacBuilding.current_temperature > (desiredTemperature):
             #print("Turning the Heater Off")
             action = 0

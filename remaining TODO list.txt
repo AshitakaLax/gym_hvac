@@ -19,3 +19,25 @@ List out the sources and references
 Define methods and a brief description associated with the methods of choice.
 
 
+
+notes todo
+
+Done Change the cycle time to ten mins( then try 5 mins)
+need to update the terminal rewards when it fails(negative reward if outside the bounds).
+
+The incremental reward how much we spent during that time frame
+
+time frame max expense, if outside make negative max expense
+
+Demo
+
+During demo be able to tweak values 
+(hot day, cold day)
+(Comfort tolerance)
+(Money focus)
+(Temperature focus)
+
+
+
+
+occupancy reward

@@ -37,6 +37,8 @@ class HvacBuilding():
 		self.__conditioned_floor_area = conditioned_floor_area
 		self.__hvac_building_tracker = hvacBuildingTracker
 		self.__last_outside_temperature = 0.0
+		self.__MaxEnergyReward = 0.0
+
 
 	def step(self, outside_temperature:float):
 		"""Performs building simulation for the next time step.
@@ -88,8 +90,8 @@ class HvacBuilding():
 		"""
 		return (outsideTemperature, (self.current_temperature + 0.0), self.building_hvac.GetAverageWattsPerSecond())
 
-	def DetermineReward(self, previousTemp: float):
-		return self.DetermineRewardCost(previousTemp)
+	def DetermineReward(self, previousTemp: float, actionCost: float):
+		return self.DetermineRewardMaxCost(previousTemp, actionCost)
 		
 	def DetermineRewardRunning(self, previousTemp: float):
 		
@@ -112,9 +114,20 @@ class HvacBuilding():
 		
 		return 0.0
 		
-	def DetermineRewardCost(self, previousTemp: float):
+	def DetermineRewardMaxCost(self, previousTemp: float, actionCost: float):
 		
-		# todo determine what the cost is for that moment
+		# determine the max cost for a timeframe
+		maxCost = self.__MaxEnergyReward
+
+		if self.current_temperature < 25 or self.current_temperature > 15:
+			# check that we need to be increasing the temperature by having the furnace on
+			reward = maxCost-actionCost
+			return reward
+
+		return maxCost * -1.0
+		
+	def DetermineRewardCost(self, previousTemp: float, actionCost: float):
+		
 		reward = (self.CalculateElectricEneregyCost() + self.CalculateGasEneregyCost())
 		if self.current_temperature < 22 or self.current_temperature > 18:
 			# check that we need to be increasing the temperature by having the furnace on
@@ -174,6 +187,53 @@ class HvacBuilding():
 		print("The Total Gas Energy Used: " + str(self.building_hvac.GetGasDTH()) + " DTH")
 		print("Electrical Cost: $" + str(self.CalculateElectricEneregyCost()))
 		print("Gas Cost: $" + str(self.CalculateGasEneregyCost()))
+
+	def CalculateMaxEneregyCostForTime(self, seconds:float, dollarsPerDTH = 6.53535):
+		"""Calculates the total cost of energy for the gas energy used
+		
+		Keyword Arguments:
+			dollarsPerDTH {float} -- calculates the cost per DTH (default: {6.53535})
+		"""
+		# calculate the max cost for the given timeframe
+		# calculate the cost for heating 
+		timeframeGasEnergy = self.building_hvac.GetMaxGasEnergyForTime(seconds)
+		timeframeHeatingElectricalEnergy = self.building_hvac.GetMaxHeatingElectricalEnergyForTime(seconds)
+		# convert the watts to DTH
+		timeFrameGasDTH = self.building_hvac.ConvertWattsToDTH(timeframeGasEnergy, seconds)
+		# convert the watts to kwh
+		timeframeHeatingElectricalEnergyKWH = self.building_hvac.ConvertWattsToKWH(timeframeHeatingElectricalEnergy, seconds)
+		maxHeatingCostforTime = self.CalculateTimeFrameElectricEneregyCost(timeframeHeatingElectricalEnergyKWH)
+		maxHeatingCostforTime = maxHeatingCostforTime + self.CalculateTimeFrameGasEneregyCost(timeFrameGasDTH)
+
+		# Calculate the cost for cooling
+		timeframeCoolingEnergy = self.building_hvac.GetMaxCoolingPowerForTime(seconds)
+		# convert the watts to kwh
+		timeframeCoolingElectricalEnergyKWH = self.building_hvac.ConvertWattsToKWH(timeframeCoolingEnergy, seconds)
+		maxCoolingCostforTime = self.CalculateTimeFrameElectricEneregyCost(timeframeCoolingElectricalEnergyKWH)
+
+		if(maxCoolingCostforTime > maxHeatingCostforTime):
+			self.__MaxEnergyReward = maxCoolingCostforTime
+			return maxCoolingCostforTime
+			
+		self.__MaxEnergyReward = maxHeatingCostforTime
+		return maxHeatingCostforTime
+
+	def CalculateTimeFrameGasEneregyCost(self, dth:float, dollarsPerDTH = 6.53535):
+		"""Calculates the total cost of energy for the gas energy used
+		
+		Keyword Arguments:
+			dollarsPerDTH {float} -- calculates the cost per DTH (default: {6.53535})
+		"""
+		return dth * dollarsPerDTH
+
+	def CalculateTimeFrameElectricEneregyCost(self, kwh:float, dollarsPerKiloWattHour = 0.1149):
+		"""Calculates the total cost of energy for the gas energy used
+		
+		Keyword Arguments:
+			dollarsPerDTH {float} -- calculates the cost per DTH (default: {6.53535})
+		"""
+		
+		return kwh * dollarsPerKiloWattHour
 
 
 	def CalculateGasEneregyCost(self, dollarsPerDTH = 6.53535):

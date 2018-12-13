@@ -261,8 +261,6 @@ class HVAC():
 		# caculate the percentage of in the shutdown time
 		gasHeatPercentage = timeRemaining / totalShutdownTime
 		return gasHeatPercentage * self.__gas_rate_energy
-
-
 		
 	def GetElectricKilowattHours(self):
 		"""Gets the number of KWH the HVAC has Used in terms of Electricity
@@ -273,10 +271,19 @@ class HVAC():
 		totalTimeHVACRunning = self.TotalDurationHeatingOn + self.TotalDurationCoolingOn
 		totalTimeHVACRunning = self.TotalTimeInSeconds
 		# convert the total Watts and convert that to KWH
+		if (totalTimeHVACRunning == 0):
+			return 0.0
 
 		hoursUsed = totalTimeHVACRunning / 3600
 		# convert the totalElectricEnergyUsed to an average watts per hour
 		averageWatts = totalElectricEnergyUsed / totalTimeHVACRunning
+		kwhUsed = averageWatts * hoursUsed
+		return kwhUsed / 1000
+
+	def ConvertWattsToKWH(self, watts:float, seconds:int):
+		hoursUsed = seconds / 3600
+		# convert the totalElectricEnergyUsed to an average watts per hour
+		averageWatts = watts / seconds
 		kwhUsed = averageWatts * hoursUsed
 		return kwhUsed / 1000
 
@@ -296,6 +303,14 @@ class HVAC():
 		dthUsed = self.ConvertWattsToDTH(totalGasEnergyUsed, self.TotalDurationHeatingOn)
 		return dthUsed
 
+	def GetMaxGasEnergyForTime(self, seconds:int):
+		return self.GetMaxHeatingPower() * seconds
+
+	def GetMaxHeatingElectricalEnergyForTime(self, seconds:int):
+		return  (self.__gas_valve_energy + self.__gas_vent_blower_energy) * seconds
+
+	def GetMaxCoolingPowerForTime(self, seconds:int):
+		return (self.__air_conditioning_energy + self.__house_blower_energy) * seconds
 
 	def ConvertWattsToDTH(self, watts, seconds:int):
 		"""Converts the watts and the timespan into Decatherms equivalent
